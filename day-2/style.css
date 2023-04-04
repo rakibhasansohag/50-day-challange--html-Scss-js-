@@ -49,7 +49,7 @@ body {
 	background-color: var(--line-border-empty);
 	position: absolute;
 	top: 50%;
-	left: 7px;
+	left: 0px;
 	height: 4px;
 	width: 100%;
 	transform: translateY(-50%);
@@ -60,7 +60,7 @@ body {
 	background-color: var(--line-border-fill);
 	position: absolute;
 	top: 50%;
-	left: 7px;
+	left: 0px;
 	height: 4px;
 	width: 0%;
 	transform: translateY(-50%);
