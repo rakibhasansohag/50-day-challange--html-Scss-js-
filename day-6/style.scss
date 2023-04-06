@@ -9,10 +9,33 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	display: flex;
-	height: 100vh;
-	overflow: hidden;
 	margin: 0;
-	flex-direction: column;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
+	overflow-x: hidden;
+	background-color: aliceblue;
+}
+
+.box {
+	background-color: aquamarine;
+	color: black;
+	width: 400px;
+	height: 200px;
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2.5rem;
+	transform: translateX(400%);
+	border-radius: 10px;
+	transition: transform 0.4s ease;
+	box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.3);
+	font-weight: 700;
+}
+.box:nth-of-type(even) {
+	transform: translateX(-400%);
+}
+
+.box.show {
+	transform: translateX(0);
 }
