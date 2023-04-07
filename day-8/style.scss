@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
+
+$-left-bg-color: rgba(87, 84, 236, 0.7);
+$-right-bg-color: rgba(43, 43, 43, 0.8);
+$-left-btn-hover-color: rgba(87, 84, 236, 1);
+$-right-btn-hover-color: rgba(28, 122, 28, 1);
+
+* {
+	box-sizing: border-box;
+	outline: none;
+	list-style: none;
+	text-decoration: none;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	overflow: hidden;
+	background-color: aliceblue;
+	height: 100vh;
+}
