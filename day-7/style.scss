@@ -109,3 +109,21 @@ body {
 		}
 	}
 }
+
+//  js functionalist to work
+
+.hover-left .left {
+	width: $-hover-width;
+}
+
+.hover-left .right {
+	width: $-other-width;
+}
+
+.hover-right .right {
+	width: $-hover-width;
+}
+
+.hover-right .left {
+	width: $-other-width;
+}
