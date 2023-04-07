@@ -127,3 +127,12 @@ body {
 .hover-right .left {
 	width: $-other-width;
 }
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+	transition: all $-speed ease-in-out;
+}
+
+
