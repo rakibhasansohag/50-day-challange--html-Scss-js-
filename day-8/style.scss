@@ -7,7 +7,6 @@ $-right-btn-hover-color: rgba(28, 122, 28, 1);
 
 * {
 	box-sizing: border-box;
-	outline: none;
 	list-style: none;
 	text-decoration: none;
 }
@@ -16,10 +15,69 @@ body {
 	font-family: 'Roboto', sans-serif;
 	margin: 0;
 	overflow: hidden;
-	background-color: aliceblue;
+	background-color: aqua;
 	height: 100vh;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .container {
 	color: #fff;
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 20px 40px;
+	border-radius: 5px;
+
+	h1 {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	form {
+		.form-control {
+			position: relative;
+			margin: 20px 0 40px;
+			width: 300px;
+
+			input {
+				background-color: transparent;
+				border: 0;
+				border-bottom: 2px solid #fff;
+				display: block;
+				width: 100%;
+				padding: 1.2rem 0;
+				font-size: 1.2rem;
+				color: #fff;
+				&:focus,
+				&:valid {
+					outline: none;
+				}
+			}
+		}
+
+		.text {
+			margin-top: 30px;
+			a {
+				color: lightblue;
+			}
+		}
+	}
+	.btn {
+		cursor: pointer;
+		display: inline-block;
+		width: 100%;
+		background-color: lightblue;
+		padding: 1.2rem;
+		font-family: inherit;
+		font-size: 1rem;
+		border-radius: 0.4rem;
+
+		&:focus {
+			outline: none;
+		}
+		&:active {
+			transform: scale(0.98);
+		}
+	}
 }
