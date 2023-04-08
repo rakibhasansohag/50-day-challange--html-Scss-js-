@@ -52,6 +52,24 @@ body {
 				&:focus,
 				&:valid {
 					outline: none;
+					border-bottom-color: lightblue;
+				}
+				&:focus + label span,
+				&:valid + label span {
+					color: lightblue;
+					transform: translateY(-30px);
+				}
+			}
+			label {
+				position: absolute;
+				top: 15px;
+				left: 0;
+
+				span {
+					display: inline-block;
+					font-size: 1.2rem;
+					min-width: 0.35rem;
+					transition: 0.3s cubic-bezier(0.68, -0.55, 0.275, 1.55);
 				}
 			}
 		}
