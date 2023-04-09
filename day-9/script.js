@@ -1,2 +1,26 @@
 'use strict';
 console.log('working ....');
+
+const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
+
+sounds.forEach((sound) => {
+	const btn = document.createElement('button');
+	btn.classList.add('btn');
+	btn.innerText = sound;
+
+	btn.addEventListener('click', () => {
+		stopSongs();
+
+		document.querySelector(`.${sound}`).play();
+	});
+
+	document.querySelector('#buttons').appendChild(btn);
+});
+// stopping the sound
+function stopSongs() {
+	sounds.forEach((sound) => {
+		const song = document.querySelector(`.${sound}`);
+		song.pause();
+		song.currentTime = 0;
+	});
+}
