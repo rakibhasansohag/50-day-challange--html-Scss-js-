@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
 
-$-left-bg-color: #686de0;
+$-left-bg-color: #506ad4;
 $-white-bg-color: #fff;
-$-left-btn-hover-color: rgba(87, 84, 236, 1);
-$-right-btn-hover-color: rgba(28, 122, 28, 1);
+$-left-btn-hover-color: #3730a3;
+$-right-btn-hover-color: #1a702e;
 
 * {
 	box-sizing: border-box;
@@ -28,11 +28,13 @@ body {
 .container {
 	background-color: $-white-bg-color;
 	border-radius: 10px;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
 	padding: 50px 20px;
 	text-align: center;
 	max-width: 100%;
-	width: 800px h3 {
+	width: 800px;
+
+	h3 {
 		opacity: 0.5;
 		letter-spacing: 2px;
 	}
@@ -46,13 +48,32 @@ body {
 	}
 
 	.btn {
-		background-color: #9f68e0;
+		background-color: $-left-bg-color;
 		border: 0;
 		border-radius: 10px;
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
 		font-size: 1.2rem;
 		padding: 13px 32px;
 		cursor: pointer;
+
+		&:hover {
+			background-color: $-left-btn-hover-color;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.3);
+		}
+
+		&:active {
+			transform: scale(0.98);
+		}
+	}
+
+	.btn-right {
+		background-color: $-right-btn-hover-color;
+
+		&:hover {
+			background-color: $-right-btn-hover-color;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.3);
+		}
+
 		&:active {
 			transform: scale(0.98);
 		}

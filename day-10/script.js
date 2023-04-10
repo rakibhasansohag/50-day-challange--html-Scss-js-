@@ -34,16 +34,25 @@ const generateJoke = async function () {
 	const data = await res.json();
 
 	jokeEl.innerHTML = data.joke;
-	setTimeout(() => {
-		applause.play();
+	// setTimeout(() => {
+	// 	applause.play();
 
-		setTimeout(() => {
-			applause.pause();
-			applause.currentTime = 0;
-		}, 3000);
-	}, 4000);
+	// 	// setTimeout(() => {
+	// 	// 	applause.pause();
+	// 	// 	applause.currentTime = 0;
+	// 	// }, 3000);
+	// }, 4000);
 };
 
 generateJoke();
 
 jokeBtn.addEventListener('click', generateJoke);
+jokeBtn.addEventListener('click', function () {
+	setTimeout(() => {
+		applause.play();
+		setTimeout(() => {
+			applause.pause();
+			applause.currentTime = 0;
+		}, 3000);
+	}, 3000);
+});
