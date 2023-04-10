@@ -6,7 +6,7 @@ const api = 'https://icanhazdadjoke.com';
 
 const jokeEl = document.getElementById('joke');
 const jokeBtn = document.getElementById('jokeBtn');
-
+const applause = new Audio('/sound/applause.mp3');
 // using Fetch API
 // const generateJoke = function () {
 // 	const config = {
@@ -34,6 +34,14 @@ const generateJoke = async function () {
 	const data = await res.json();
 
 	jokeEl.innerHTML = data.joke;
+	setTimeout(() => {
+		applause.play();
+
+		setTimeout(() => {
+			applause.pause();
+			applause.currentTime = 0;
+		}, 3000);
+	}, 4000);
 };
 
 generateJoke();
