@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
 
-$-left-bg-color: #506ad4;
-$-white-bg-color: #fff;
+$-left-bg-color: #e1e1e1;
+$-white-bg-color: #eee;
 $-left-btn-hover-color: #3730a3;
 $-right-btn-hover-color: #1a702e;
 
@@ -23,4 +23,31 @@ body {
 	align-items: center;
 	text-align: center;
 	padding: 20px;
+}
+
+#insert {
+	.key {
+		border: 1px solid #999;
+		background-color: $-white-bg-color;
+		box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+		display: inline-flex;
+		align-items: center;
+		font-size: 1.3rem;
+		padding: 20px;
+		flex-direction: column;
+		margin: 10px;
+		font-weight: bold;
+		min-width: 150px;
+		position: relative;
+
+		small {
+			position: absolute;
+			top: -24px;
+			left: 0;
+			text-align: center;
+			width: 100%;
+			color: #555;
+			font-size: 0.9876rem;
+		}
+	}
 }
