@@ -71,5 +71,39 @@ h1 {
 		&.active .faq-text {
 			display: block;
 		}
+
+		.faq-toggle {
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 1rem;
+			padding: 0;
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			height: 30px;
+			width: 30px;
+			border-radius: 50%;
+		}
 	}
+}
+
+.faq-toggle .fa-times {
+	display: none;
+}
+
+.faq.active .faq-toggle .fa-times {
+	color: #fff;
+	display: block;
+}
+
+.faq.active .faq-toggle .fa-chevron-down {
+	display: none;
+}
+
+.faq.active .faq-toggle {
+	background-color: #9fa4a8;
 }
