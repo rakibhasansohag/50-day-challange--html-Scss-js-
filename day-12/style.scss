@@ -66,6 +66,7 @@ h1 {
 		.faq-text {
 			display: none;
 			margin: 30px 0 0;
+			transition: all 0.3s ease;
 		}
 
 		&.active .faq-text {
@@ -87,12 +88,22 @@ h1 {
 			height: 30px;
 			width: 30px;
 			border-radius: 50%;
-			transition: 0.3s ease;
+			transition: background-color 0.3s ease;
 
 			.fa-times {
 				display: none;
 			}
+
+			&:hover {
+				background-color: #9fa4a8;
+			}
+			&.active {
+				transform: rotate(360deg);
+			}
 		}
+		// &.active {
+		// 	transform: rotate(360deg); // need some important
+		// }
 		&.active .faq-toggle .fa-times {
 			color: #fff;
 			display: block;
