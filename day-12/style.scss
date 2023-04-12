@@ -87,23 +87,39 @@ h1 {
 			height: 30px;
 			width: 30px;
 			border-radius: 50%;
+			transition: 0.3s ease;
+
+			.fa-times {
+				display: none;
+			}
+		}
+		&.active .faq-toggle .fa-times {
+			color: #fff;
+			display: block;
+		}
+
+		&.active .faq-toggle .fa-chevron-down {
+			display: none;
+		}
+		&.active .faq-toggle {
+			background-color: #9fa4a8;
 		}
 	}
 }
 
-.faq-toggle .fa-times {
-	display: none;
-}
+// .faq-toggle .fa-times {
+// 	display: none;
+// }
 
-.faq.active .faq-toggle .fa-times {
-	color: #fff;
-	display: block;
-}
+// .faq.active .faq-toggle .fa-times {
+// 	color: #fff;
+// 	display: block;
+// }
 
-.faq.active .faq-toggle .fa-chevron-down {
-	display: none;
-}
+// .faq.active .faq-toggle .fa-chevron-down {
+// 	display: none;
+// }
 
-.faq.active .faq-toggle {
-	background-color: #9fa4a8;
-}
+// .faq.active .faq-toggle {
+// 	background-color: #9fa4a8;
+// }
