@@ -14,11 +14,11 @@ counters.forEach((counter) => {
 		// console.log(increment);
 
 		if (c < target) {
-			counter.innerText = `${Math.round(c + increment)}`;
-
+			const newCounterValue = Math.round(c + increment);
+			counter.innerText = `${newCounterValue}`;
 			setTimeout(updateCounter, 1);
 		} else {
-			counter.innerText = target;
+			counter.innerText = `${target}` + ' +';
 		}
 	};
 
