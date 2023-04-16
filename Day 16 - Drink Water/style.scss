@@ -24,33 +24,3 @@ body {
 	flex-wrap: wrap;
 	color: #fff;
 }
-
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 7rem;
-	.counter-container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		text-align: center;
-
-		.counter {
-			font-size: 6rem;
-			font-weight: 900;
-			margin-top: 1rem;
-		}
-	}
-}
-
-// responsive
-@media only screen and (max-width: 580px) {
-	.container {
-		flex-direction: column;
-		.counter-container {
-			margin-bottom: 2rem;
-		}
-	}
-}
