@@ -45,10 +45,10 @@ function updateCUp() {
 	}
 
 	if (fullCups === totalCups) {
-		remained.style.display = 'none';
+		remained.style.visibility = 'hidden';
 		remained.style.height = 0;
 	} else {
-		remained.style.display = 'block';
+		remained.style.visibility = 'visible';
 		liters.innerText = `${2 - (250 * fullCups) / 1000}L`;
 	}
 }
