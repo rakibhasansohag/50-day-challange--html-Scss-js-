@@ -73,9 +73,8 @@ h3 {
 
 .remained {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	text-align: center;
 	flex: 1;
 	transition: 0.3s ease;
@@ -92,9 +91,7 @@ h3 {
 
 .percentage {
 	background-color: $-water-fill-color;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	text-align: center;
 	font-weight: bold;
 	font-size: 30px;
 	height: 0;
