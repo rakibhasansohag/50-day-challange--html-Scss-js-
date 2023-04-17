@@ -105,6 +105,71 @@ main {
 	}
 }
 
+#footer {
+	.pagination {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 2rem;
+	}
+
+	.pagination button {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+		color: red;
+		border: 1px solid red;
+		border-radius: 50%;
+		margin: 0 5px;
+		font-size: 14px;
+		cursor: pointer;
+		transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+	}
+
+	.pagination button.active {
+		background-color: #333;
+		color: #fff;
+		border-color: #333;
+	}
+
+	.pagination button:hover:not(.active) {
+		background-color: #ddd;
+	}
+
+	.pagination button:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+
+	.pagination .ellipsis {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		height: 32px;
+		width: 32px;
+		margin: 0 5px;
+		font-size: 14px;
+		color: #333;
+	}
+
+	@media only screen and (max-width: 767px) {
+		.pagination button {
+			height: 28px;
+			width: 28px;
+			font-size: 12px;
+		}
+
+		.pagination .ellipsis {
+			height: 28px;
+			width: 28px;
+			font-size: 12px;
+		}
+	}
+}
+
 // responsive design
 
 @media only screen and (max-width: 1200px) {
