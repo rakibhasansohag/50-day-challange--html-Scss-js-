@@ -154,20 +154,6 @@ main {
 		font-size: 14px;
 		color: #333;
 	}
-
-	@media only screen and (max-width: 767px) {
-		.pagination button {
-			height: 28px;
-			width: 28px;
-			font-size: 12px;
-		}
-
-		.pagination .ellipsis {
-			height: 28px;
-			width: 28px;
-			font-size: 12px;
-		}
-	}
 }
 
 // responsive design
@@ -192,5 +178,17 @@ main {
 				font-size: 12px;
 			}
 		}
+	}
+
+	.pagination button {
+		height: 28px;
+		width: 28px;
+		font-size: 12px;
+	}
+
+	.pagination .ellipsis {
+		height: 28px;
+		width: 28px;
+		font-size: 12px;
 	}
 }

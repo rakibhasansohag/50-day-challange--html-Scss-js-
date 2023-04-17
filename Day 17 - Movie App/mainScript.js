@@ -20,17 +20,10 @@ const paginationEl = document.querySelector('.pagination');
 
 // getting the movie from the Api
 
-getMovies(apiUrl);
-
-async function fetchData(page) {
-	const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${page}`;
-	getMovies(url);
-}
-
 // getting the movie from the Api
 
 getMovies(apiUrl);
-
+search.focus();
 async function fetchData(page) {
 	const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${page}`;
 	getMovies(url);
