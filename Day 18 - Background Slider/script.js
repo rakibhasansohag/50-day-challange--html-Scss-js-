@@ -6,6 +6,10 @@ const slides = document.querySelectorAll('.slide');
 const rightBtn = document.getElementById('right');
 const leftBtn = document.getElementById('left');
 
+// Set the first slide to be active initially
+slides[0].classList.add('active');
+
+// Set the active slide to 0 initially
 let activeSlide = 0;
 
 rightBtn.addEventListener('click', () => {
@@ -37,7 +41,11 @@ function setBgToBody() {
 }
 
 function setActiveSlide() {
-	slides.forEach((slide) => slide.classList.remove('active'));
-
-	slides[activeSlide].classList.add('active');
+	for (let i = 0; i < slides.length; i++) {
+		if (i === activeSlide) {
+			slides[i].classList.add('active');
+		} else {
+			slides[i].classList.remove('active');
+		}
+	}
 }
