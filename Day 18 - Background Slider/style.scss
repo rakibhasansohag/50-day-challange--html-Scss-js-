@@ -22,7 +22,7 @@ $-image-7: url('https://images.unsplash.com/photo-1623780533251-7a77e0c09dcf?ixl
 	padding: 0;
 }
 body {
-	background-image: $-image-1;
+	// background-image: $-image-1;
 	font-family: 'Roboto', sans-serif;
 	display: flex;
 	flex-direction: column;
@@ -74,17 +74,23 @@ body::before {
 		background-color: transparent;
 		padding: 20px;
 		font-size: 30px;
-		border: 2px solid orangered;
+		border: none;
 		top: 50%;
 		transform: translateY(-50%);
 		color: $-color-color;
 		cursor: pointer;
-
+		outline: none;
 		&.arrow-left {
 			left: calc(15vw - 70px);
+			border-top: 2px solid orangered;
+			border-bottom: 2px solid orangered;
+			border-left: 2px solid orangered;
 		}
 		&.arrow-right {
 			right: calc(15vw - 70px);
+			border-top: 2px solid orangered;
+			border-bottom: 2px solid orangered;
+			border-right: 2px solid orangered;
 		}
 	}
 }
