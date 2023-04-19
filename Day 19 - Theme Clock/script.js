@@ -95,6 +95,7 @@ function setTime() {
 	timeEl.innerHTML = `${hoursForClock}:${
 		minutes < 10 ? `0${minutes}` : minutes
 	} <span class="ampm">${ampm}</span>`;
+
 	dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span>`;
 }
 
