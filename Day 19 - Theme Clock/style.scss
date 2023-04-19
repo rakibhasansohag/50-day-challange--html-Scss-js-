@@ -15,7 +15,7 @@ html.dark {
 
 html.dark {
 	background-color: $-primary-color;
-	color: $-secondary-color !important;
+	color: $-secondary-color;
 	// color: $-secondary-color;
 }
 
@@ -72,8 +72,9 @@ body {
 			line-height: 24px;
 			text-align: center;
 			border-radius: 50%;
-			background-color: #fff;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+			// background-color: #fff;
+			color: $-primary-color;
+			// box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 			z-index: 1;
 
 			&:nth-child(1) {

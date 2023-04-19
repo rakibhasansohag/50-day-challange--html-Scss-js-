@@ -97,6 +97,8 @@ function setTime() {
 	} <span class="ampm">${ampm}</span>`;
 
 	dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span>`;
+
+	// to fix the bug on dark mode
 }
 
 // Call the function to update the clock every second
