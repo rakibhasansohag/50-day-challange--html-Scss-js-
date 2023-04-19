@@ -14,8 +14,9 @@ html.dark {
 }
 
 html.dark {
-	background-color: #111;
-	color: $-primary-color;
+	background-color: $-primary-color;
+	color: $-secondary-color !important;
+	// color: $-secondary-color;
 }
 
 * {
@@ -64,6 +65,7 @@ body {
 			height: 65px;
 			width: 3px;
 			transform-origin: bottom center;
+			transition: all 0.5s ease-in;
 
 			&.hour {
 				height: 40px;
@@ -108,7 +110,8 @@ body {
 
 	.time {
 		font-size: 2rem;
-		color: $-primary-color;
+		// color: $-primary-color;
+		margin-bottom: 13px;
 	}
 	.date {
 		font-size: 1rem;
