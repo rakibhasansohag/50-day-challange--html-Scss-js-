@@ -33,6 +33,11 @@ body {
 		width: 145px;
 		cursor: pointer;
 		background-image: url('https://source.unsplash.com/featured/150x150');
+		transition: transform 0.5s ease-in-out;
+
+		&:hover {
+			transform: scale(1.2);
+		}
 	}
 }
 
@@ -44,6 +49,33 @@ body {
 	background-color: #333;
 	border-color: $-color-white;
 	border-style: dashed;
+}
+
+///   animation for this project
+.fadeIn {
+	animation: fadeIn 1s;
+}
+
+.fadeOut {
+	animation: fadeOut 1s;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
 }
 
 // responsive Design

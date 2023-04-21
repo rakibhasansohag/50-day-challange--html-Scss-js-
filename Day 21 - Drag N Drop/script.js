@@ -23,24 +23,29 @@ function dragStart() {
 	this.ClassName += ' hold';
 	setTimeout(() => (this.className = 'invisible'), 0);
 }
+
 function dragEnd() {
 	// console.log('drag End');
 	this.className = 'fill';
 }
+
 function dragOver(e) {
 	// console.log('drag Over');
 
 	e.preventDefault();
 }
+
 function dragEnter(e) {
 	// console.log('drag Enter');
 	e.preventDefault();
 	this.className += ' hovered';
 }
+
 function dragLeave() {
 	console.log('drag Leave');
 	this.className = 'empty';
 }
+
 function dragDrop() {
 	// console.log('drag Drop');
 	this.className = 'empty';
