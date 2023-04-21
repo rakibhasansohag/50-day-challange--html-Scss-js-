@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
 
 // root file
 $-primary-color: #000;
@@ -19,4 +19,36 @@ body {
 	height: 100vh;
 	overflow: hidden;
 	background: $-primary-color;
+}
+
+.empty {
+	height: 150px;
+	width: 150px;
+	margin: 10px;
+	border: 3px solid $-primary-color;
+	background-color: $-color-white;
+
+	.fill {
+		height: 145px;
+		width: 145px;
+		cursor: pointer;
+		background-image: url('https://source.unsplash.com/featured/150x150');
+	}
+}
+
+.hold {
+	border: 5px solid #ccc;
+}
+
+.hovered {
+	background-color: #333;
+	border-color: $-color-white;
+	border-style: dashed;
+}
+
+// responsive Design
+@media only screen and (max-width: 800px) {
+	body {
+		flex-direction: column;
+	}
 }
