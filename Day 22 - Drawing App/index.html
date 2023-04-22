@@ -7,14 +7,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://kit.fontawesome.com/df8d6121fb.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/css/style.main.css">
-	<title> Kinetic CSS Loader </title>
+	<title> Drawing App </title>
 </head>
 
 <body>
 
-	<div class="conatiner">
+	<!-- point : making this with canvas -->
+
+	<canvas id="canvas" width="800" height="800">
+		<!-- if canvas is not supported -->
+		<p> Your browser does not support the canvas element. </p>
+	</canvas>
+
+	<div class="toolbox">
+		<button id="decrease">-</button>
+		<span id="size">20</span>
+		<button id="increase">+</button>
+		<input type="color" id="color">
+		<button id="clear">X</button>
 
 	</div>
+
 
 
 	<!-- javascript file start -->
