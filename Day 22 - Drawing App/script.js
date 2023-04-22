@@ -3,11 +3,18 @@ console.log('working ....');
 
 //  point 1 : making all the variables
 const canvas = document.querySelector('#canvas');
+const increaseBtn = document.getElementById('increase');
+const decreaseBtn = document.getElementById('decrease');
+const sizeEL = document.getElementById('size');
+const colorEl = document.getElementById('color');
+const clearEl = document.getElementById('clear');
+
 const ctx = canvas.getContext('2d');
 
 // point 1.1 : making the canvas size and others properties
-let size = 20;
-let color = 'black';
+let size = 10;
+colorEl.value = 'black';
+let color = colorEl.value;
 let x;
 let y;
 let isPressed = false;
@@ -66,3 +73,39 @@ function drawLine(x1, y1, x2, y2) {
 
 // drawCircle(100, 200); /// for testing
 // drawLine(300, 300, 200, 500); /// for testing
+
+// point 3 : making the increase and decrease button
+
+function updateSizeOnScreen() {
+	sizeEL.innerText = size;
+}
+
+increaseBtn.addEventListener('click', () => {
+	size += 5;
+
+	if (size > 50) {
+		size = 50;
+	}
+
+	updateSizeOnScreen();
+});
+
+decreaseBtn.addEventListener('click', () => {
+	size -= 5;
+
+	if (size < 5) {
+		size = 5;
+	}
+
+	updateSizeOnScreen();
+});
+
+// point 4 : making the color picker
+colorEl.addEventListener('change', (e) => {
+	color = e.target.value;
+});
+
+// point 5 : making the clear button
+clearEl.addEventListener('click', () => {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+});

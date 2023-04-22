@@ -32,6 +32,12 @@ canvas {
 	display: flex;
 	width: 804px;
 	padding: 1rem;
+
+	#clear,
+	#increase,
+	#decrease {
+		cursor: pointer;
+	}
 }
 
 .toolbox > * {
