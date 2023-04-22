@@ -109,3 +109,15 @@ colorEl.addEventListener('change', (e) => {
 clearEl.addEventListener('click', () => {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
+
+// for editable size
+const sizeSpan = document.getElementById('size');
+
+sizeSpan.addEventListener('input', () => {
+	const newSize = parseInt(sizeSpan.textContent.replace(/\D/g, ''), 10);
+
+	if (!isNaN(newSize) && newSize >= 1 && newSize <= 50) {
+		size = newSize;
+		updateSizeOnScreen();
+	}
+});
