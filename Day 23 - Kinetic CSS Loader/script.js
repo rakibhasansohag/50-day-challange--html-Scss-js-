@@ -1,6 +1,6 @@
 'use strict';
 console.log('working ....');
-
+// point : declared all the variables 
 const primaryColorInput = document.getElementById('primary-color');
 const secondaryColorInput = document.getElementById('secondary-color');
 const kineticLoader = document.querySelector('.kinetic');
@@ -13,7 +13,6 @@ loaderSizeInput.addEventListener('input', () => {
 });
 
 // point  color change
-
 // Add event listener for primary color input
 primaryColorInput.addEventListener('input', () => {
 	// Get the value of the primary color input
