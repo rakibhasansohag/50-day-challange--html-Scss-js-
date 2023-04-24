@@ -16,7 +16,7 @@ const animated_bgs = document.querySelectorAll('.animated-bg');
 const animated_bg_texts = document.querySelectorAll('.animated-bg-text');
 
 // point 2 : set the timeout
-setTimeout(getData, 2500);
+setTimeout(getData, 1500);
 
 // point 3 : create the function for animation loading
 function getData() {
