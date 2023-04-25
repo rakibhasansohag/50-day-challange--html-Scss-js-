@@ -21,3 +21,5 @@ function fixName() {
 		nav.classList.remove('active');
 	}
 }
+
+//  point for responsive menu

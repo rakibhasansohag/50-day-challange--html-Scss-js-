@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
 
 // root file
-$-primary-color: #222;
+$-primary-color: rgb(27, 23, 23);
 $-secondary-color: #555;
 $-color-white: #fff;
 $-color-hover: #f1f1f1;
+$-icon-color: #3498db;
+
 // point global style
 * {
 	box-sizing: border-box;
@@ -23,7 +25,14 @@ body {
 	max-width: 1200px;
 	margin: 0 auto;
 }
-
+.button {
+	background-color: $primary-color;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
 //  point Nav focus
 
 .nav {
@@ -139,3 +148,5 @@ content h3 {
 	letter-spacing: 1.2px;
 	line-height: 30px;
 }
+
+//  point responsive
