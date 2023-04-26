@@ -47,6 +47,7 @@ button {
 		position: absolute;
 		top: 0;
 		left: 0;
+		transition: transform 0.5s ease-in-out;
 
 		& > div {
 			height: 100%;
@@ -72,6 +73,7 @@ button {
 		top: 0;
 		left: 35%;
 		width: 65%;
+		transition: transform 0.5s ease-in-out;
 
 		& > div {
 			background-repeat: no-repeat;
