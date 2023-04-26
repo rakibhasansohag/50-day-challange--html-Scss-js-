@@ -2,8 +2,12 @@
 
 // root file
 $-primary-color: #f5f5f5;
-$-secondary-color: steelblue;
+$-secondary-color: #222;
 $-color-white: #fff;
+$-images-1: url('https://images.unsplash.com/photo-1681946947943-538ea3092abc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80'); // night forest
+$-images-2: url('https://images.unsplash.com/photo-1416163255873-f17745e8f851?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2130&q=80'); // yellow surfing
+$-images-3: url('https://images.unsplash.com/photo-1592722182837-52273392552d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80'); // mountain sky
+$-images-4: url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); // mountain with lake
 
 * {
 	box-sizing: border-box;
@@ -13,11 +17,88 @@ $-color-white: #fff;
 }
 body {
 	font-family: 'Roboto', sans-serif;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	height: 100vh;
+}
+
+button {
+	background-color: $-color-white;
+	border: none;
+	color: #aaa;
+	cursor: pointer;
+	font-size: 1rem;
+	padding: 1rem;
+	transition: all 0.3s ease-in;
+
+	&:hover {
+		color: $-secondary-color;
+		transition: all 0.3s ease-out;
+	}
+}
+
+.slider-container {
+	position: relative;
 	overflow: hidden;
-	background: $-primary-color;
-	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+
+	.left-slide {
+		height: 100%;
+		width: 35%;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		& > div {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			color: $-color-white;
+		}
+
+		h1 {
+			font-size: 3rem;
+			font-weight: 900;
+			margin-bottom: 0.8rem;
+			margin-top: -2rem;
+		}
+	}
+
+	.right-slide {
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 35%;
+		width: 65%;
+
+		& > div {
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.action-buttons {
+		button {
+			position: absolute;
+			left: 35%;
+			top: 50%;
+			z-index: 100;
+
+			&:first-child {
+				transform: translateX(-100%);
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+			}
+			&:last-child {
+				transform: translateY(-100%);
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+		}
+	}
 }
