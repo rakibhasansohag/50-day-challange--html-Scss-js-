@@ -60,16 +60,16 @@ body {
 		padding: 1rem 2rem;
 		margin: 0.5rem;
 
-		.info {
+		&.info {
 			color: $-primary-color;
 		}
-		.success {
+		&.success {
 			color: green;
 		}
-		.warning {
+		&.warning {
 			color: orange;
 		}
-		.error {
+		&.error {
 			color: red;
 		}
 	}
