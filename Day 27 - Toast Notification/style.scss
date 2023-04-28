@@ -55,9 +55,22 @@ body {
 
 	.toast {
 		background-color: $-color-white;
-		color: $-primary-color;
+		// color: $-primary-color;
 		border-radius: 5px;
 		padding: 1rem 2rem;
 		margin: 0.5rem;
+
+		.info {
+			color: $-primary-color;
+		}
+		.success {
+			color: green;
+		}
+		.warning {
+			color: orange;
+		}
+		.error {
+			color: red;
+		}
 	}
 }
