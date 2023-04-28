@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
 
 // root file
-$-primary-color: #f5f5f5;
-$-secondary-color: steelblue;
+$-primary-color: #2a2a72;
+$-secondary-color: #4c2885;
 $-color-white: #fff;
 
 * {
@@ -20,4 +20,115 @@ body {
 	overflow: hidden;
 	background: $-primary-color;
 	flex-direction: column;
+	color: $-color-white;
+}
+
+// point style goes from here
+
+.user-form {
+	width: 100%;
+	max-width: 700px;
+
+	input {
+		width: 100%;
+		display: block;
+		background-color: $-secondary-color;
+		border: none;
+		border-radius: 10px;
+		color: $-color-white;
+		padding: 1rem;
+		margin-bottom: 1.8rem;
+		font-family: inherit;
+		font-size: 1rem;
+		transition: all 0.3s ease-in-out;
+		box-shadow: 0 5px 10px rgba(154, 160, 185, 0.06),
+			0 15px 40px rgba(0, 0, 0, 0.1);
+		&::placeholder {
+			color: #bbb;
+		}
+	}
+}
+
+main {
+	.card {
+		max-width: 800px;
+		background-color: $-secondary-color;
+		border-radius: 20px;
+		box-shadow: 0 5px 10px rgba(154, 160, 185, 0.06),
+			0 15px 40px rgba(0, 0, 0, 0.1);
+		display: flex;
+		padding: 3rem;
+		margin: 0 1.5rem;
+		// justify-content: space-between;
+		// align-items: center;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			transform: translateY(-5px);
+		}
+		&:active {
+			transform: translateY(0);
+		}
+
+		.avatar {
+			border-radius: 50%;
+			border: 10px solid $-primary-color;
+			height: 150px;
+			width: 150px;
+		}
+
+		.user-info {
+			color: #eee;
+			margin-left: 2rem;
+
+			h2 {
+				margin-top: 0;
+				margin-bottom: 0.5rem;
+			}
+			p {
+				margin-bottom: 1rem;
+			}
+			ul {
+				display: flex;
+				justify-content: space-between;
+				max-width: 400px;
+				margin-bottom: 1rem;
+				li {
+					display: flex;
+					align-items: center;
+
+					strong {
+						font-size: 0.9rem;
+						margin-left: 0.5rem;
+					}
+				}
+			}
+
+			#repos {
+				.repo {
+					color: $-color-white;
+					background-color: $-primary-color;
+					font-size: 0.78rem;
+					padding: 00.25rem 0.5rem;
+					margin-right: 0.5rem;
+					margin-bottom: 0.5rem;
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+// responsive style goes from here
+
+@media only screen and (max-width: 500px) {
+	.card {
+		flex-direction: column;
+		align-items: center;
+
+		&.user-info {
+			margin-left: 0;
+			margin-top: 2rem;
+			max-width: 400px;
+		}
+	}
 }
