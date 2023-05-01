@@ -42,41 +42,30 @@ generateEl.addEventListener('click', () => {
 });
 
 // point for generate password function
+
 function generatePassword(lower, upper, number, symbol, length) {
-	// point 1. Init pw var
-	// point 2. Filter out unchecked types
-	// point 3. Loop over length call generator function for each type
-	// point 4. Add final pw to the pw var and return
+	// Initialize an array to hold all the generated characters
+	const allChars = [];
 
-	let generatedPassword = '';
+	// Add the appropriate characters to the array for each selected type
+	if (lower) allChars.push(...Array.from({ length }, getRandomLower));
+	if (upper) allChars.push(...Array.from({ length }, getRandomUpper));
+	if (number) allChars.push(...Array.from({ length }, getRandomNumber));
+	if (symbol) allChars.push(...Array.from({ length }, getRandomSymbol));
 
-	const typesCount = lower + upper + number + symbol;
+	// Shuffle the array of all generated characters
+	shuffleArray(allChars);
 
-	// console.log('typesCount: ', typesCount);
+	// Slice the shuffled array to get the required length and join the characters to form the final password
+	return allChars.slice(0, length).join('');
+}
 
-	const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(
-		(item) => Object.values(item)[0],
-	);
-
-	// console.log('typesArr: ', typesArr);
-
-	if (typesCount === 0) {
-		return '';
+// A helper function to shuffle an array in place using the Fisher-Yates shuffle algorithm
+function shuffleArray(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
 	}
-
-	for (let i = 0; i < length; i += typesCount) {
-		typesArr.forEach((type) => {
-			const funcName = Object.keys(type)[0];
-
-			// console.log('funcName: ', funcName);
-
-			generatedPassword += randomFunc[funcName]();
-		});
-	}
-
-	const finalPassword = generatedPassword.slice(0, length);
-
-	return finalPassword;
 }
 
 // point copy password to clipboard
@@ -94,6 +83,7 @@ clipboardEl.addEventListener('click', () => {
 	document.execCommand('copy');
 	textarea.remove();
 	alert('Password copied to clipboard!');
+	resultEl.innerText = '';
 });
 
 // point get random for lower case
