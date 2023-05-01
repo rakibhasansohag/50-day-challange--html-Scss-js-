@@ -31,7 +31,7 @@ generateEl.addEventListener('click', () => {
 	const hasSymbol = symbolsEl.checked;
 
 	// console.log(hasLower, hasUpper, hasNumber, hasSymbol, length);
-
+	resultEl.classList.add('fade-in');
 	resultEl.innerText = generatePassword(
 		hasLower,
 		hasUpper,
