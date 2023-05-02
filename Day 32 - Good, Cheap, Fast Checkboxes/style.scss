@@ -69,8 +69,39 @@ body {
 	background-color: $-secondary-color;
 }
 
-// point	  for animation for the ball and the checkbox
+// add reset button
+.reset {
+	margin-top: 20px;
+	background-color: $-secondary-color;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	color: $-color-white;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	font-weight: 700;
+	&:hover {
+		background-color: darken($-secondary-color, 10%);
+	}
+}
 
+// point summery
+#summery {
+	margin-top: 20px;
+	background-color: $-secondary-color;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	color: $-color-white;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	font-weight: 700;
+	&:hover {
+		background-color: darken($-secondary-color, 10%);
+	}
+}
+
+// point  for animation for the ball and the checkbox
 @keyframes slideOn {
 	0% {
 		transform: translateX(0) scale(1);
