@@ -18,13 +18,13 @@ function addNewNote(text = '') {
 	const note = document.createElement('div');
 	note.classList.add('note');
 	note.innerHTML = `
-		<div class="tools">
-			<button class="edit"><i class="fas fa-edit"></i></button>
-			<button class="delete"><i class="fas fa-trash-alt"></i></button>
-			</div>
-			<div class="main ${text ? '' : 'hidden'}"></div>
-			<textarea class="${text ? 'hidden' : ''}"></textarea>
-			`;
+        <div class="tools">
+            <button class="edit"><i class="fas fa-edit"></i></button>
+            <button class="delete"><i class="fas fa-trash-alt"></i></button>
+        </div>
+        <div class="main ${text ? '' : 'hidden'}"></div>
+        <textarea class="${text ? 'hidden' : ''}"></textarea>
+    `;
 	// point : all the variables
 	const editBtn = note.querySelector('.edit');
 	const deleteBtn = note.querySelector('.delete');
@@ -68,3 +68,11 @@ function updateLs() {
 
 	localStorage.setItem('notes', JSON.stringify(notes));
 }
+
+// point : text area event listener
+textArea.addEventListener('keydown', (e) => {
+	if (e.key === 'Enter' && !e.shiftKey) {
+		e.preventDefault();
+		addNewNote();
+	}
+});
