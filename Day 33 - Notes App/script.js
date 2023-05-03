@@ -4,6 +4,7 @@ console.log('working ....');
 // point : all the variables
 const addBtn = document.querySelector('.add');
 const notes = JSON.parse(localStorage.getItem('notes'));
+let lastTextArea; // declare a variable to hold the last created note's textarea
 
 // point : check if there is any notes in local storage
 if (notes) {
@@ -44,14 +45,26 @@ function addNewNote(text = '') {
 	editBtn.addEventListener('click', () => {
 		main.classList.toggle('hidden');
 		textArea.classList.toggle('hidden');
+		textArea.focus();
 	});
 
 	// point : text area event listener
 	textArea.addEventListener('input', (e) => {
 		const { value } = e.target;
 		main.innerHTML = marked(value);
-
 		updateLs();
+	});
+
+	// point: add keyup event listener to the text area for the enter key
+	textArea.addEventListener('keyup', (e) => {
+		if (e.keyCode === 13) {
+			e.preventDefault();
+			const { value } = e.target;
+			main.innerHTML = marked(value);
+			main.classList.remove('hidden');
+			textArea.classList.add('hidden');
+			updateLs();
+		}
 	});
 
 	document.body.appendChild(note);
@@ -69,10 +82,12 @@ function updateLs() {
 	localStorage.setItem('notes', JSON.stringify(notes));
 }
 
-// point : text area event listener
-textArea.addEventListener('keydown', (e) => {
-	if (e.key === 'Enter' && !e.shiftKey) {
-		e.preventDefault();
-		addNewNote();
+// Add event listener for Enter key
+document.addEventListener('keydown', (event) => {
+	if (event.key === 'Enter' && lastTextArea) {
+		event.preventDefault();
+		lastTextArea.blur();
+		updateLs();
+		lastTextArea.focus();
 	}
 });
