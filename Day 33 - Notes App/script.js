@@ -3,9 +3,14 @@ console.log('working ....');
 
 // point : all the variables
 const addBtn = document.querySelector('.add');
+const notes = JSON.parse(localStorage.getItem('notes'));
+
+// point : check if there is any notes in local storage
+if (notes) {
+	notes.forEach((note) => addNewNote(note));
+}
 
 // point : add button event listener
-
 addBtn.addEventListener('click', () => addNewNote());
 
 // point : add new note function
@@ -32,6 +37,7 @@ function addNewNote(text = '') {
 	// point : delete button event listener
 	deleteBtn.addEventListener('click', () => {
 		note.remove();
+		updateLs(); // point : update local storage
 	});
 
 	// point : toggle using edit button
@@ -44,7 +50,21 @@ function addNewNote(text = '') {
 	textArea.addEventListener('input', (e) => {
 		const { value } = e.target;
 		main.innerHTML = marked(value);
+
+		updateLs();
 	});
 
 	document.body.appendChild(note);
+}
+
+// point : local storage
+
+function updateLs() {
+	const notesText = document.querySelectorAll('textarea');
+	const notes = [];
+
+	notesText.forEach((note) => notes.push(note.value));
+	// console.log(notes);
+
+	localStorage.setItem('notes', JSON.stringify(notes));
 }
