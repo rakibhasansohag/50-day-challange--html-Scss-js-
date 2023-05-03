@@ -41,7 +41,7 @@ body {
 	box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
 	margin: 2rem 1.2rem;
 	height: 400px;
-	height: 400px;
+	width: 400px;
 
 	.tools {
 		background-color: $-secondary-color;
@@ -72,7 +72,9 @@ body {
 		padding: 1.2rem;
 	}
 }
-
+.main {
+	padding: 1.2rem;
+}
 .hidden {
 	display: none;
 }
