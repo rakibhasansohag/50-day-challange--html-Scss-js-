@@ -55,9 +55,16 @@ function addNewNote(text = '') {
 		updateLs();
 	});
 
-	// point: add keyup event listener to the text area for the enter key
-	textArea.addEventListener('keyup', (e) => {
-		if (e.keyCode === 13) {
+	// // point : key down event listener for the text area
+	textArea.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' && e.shiftKey) {
+			e.preventDefault();
+			const start = textArea.selectionStart;
+			const end = textArea.selectionEnd;
+			const value = textArea.value;
+			textArea.value = `${value.substring(0, start)}\n${value.substring(end)}`;
+			textArea.selectionStart = textArea.selectionEnd = start + 1;
+		} else if (e.key === 'Enter' && !e.shiftKey) {
 			e.preventDefault();
 			const { value } = e.target;
 			main.innerHTML = marked(value);
