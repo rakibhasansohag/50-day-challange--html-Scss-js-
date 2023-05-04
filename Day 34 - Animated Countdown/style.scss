@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
 
 // root file
-$-primary-color: #f5f5f5;
+$-primary-color: #3498db;
 $-secondary-color: steelblue;
 $-color-white: #fff;
 
@@ -13,11 +13,121 @@ $-color-white: #fff;
 }
 body {
 	font-family: 'Roboto', sans-serif;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	height: 100vh;
 	overflow: hidden;
-	background: $-primary-color;
-	flex-direction: column;
+}
+
+.counter {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	// width: 100%;
+
+	.nums {
+		color: $-primary-color;
+		font-size: 5rem;
+		position: relative;
+		overflow: hidden;
+		width: 250px;
+		height: 80px;
+
+		span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(120deg);
+			transform-origin: bottom center;
+
+			&.in {
+				transform: translate(-50%, -50%) rotate(0deg);
+				animation: goIn 0.5s ease-in-out forwards;
+			}
+			&.out {
+				animation: goOut 0.5s ease-in-out forwards;
+			}
+		}
+	}
+
+	h4 {
+		margin-top: 1rem;
+	}
+
+	&.hide {
+		// display: none;
+		transform: translate(-50%, -50%) scale(0);
+		animation: hide 0.5s ease-in-out forwards; // forwards : to keep the last state of animation
+	}
+}
+
+.final {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	text-align: center;
+	// width: 100%;
+
+	h4 {
+		margin-bottom: 1rem;
+		font-size: 1.2rem;
+		text-transform: uppercase;
+	}
+
+	&.show {
+		transform: translate(-50%, -50%) scale(1);
+		animation: show 0.5s ease-in-out forwards;
+	}
+}
+
+// point  : for animations
+@keyframes hide {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(0);
+	}
+}
+
+@keyframes show {
+	0% {
+		transform: translate(-50%, -50%) scale(0);
+	}
+	30% {
+		transform: translate(-50%, -50%) scale(1.4);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+@keyframes goIn {
+	0% {
+		transform: translate(-50%, -50%) rotate(120deg);
+	}
+	30% {
+		transform: translate(-50%, -50%) rotate(-20deg);
+	}
+	60% {
+		transform: translate(-50%, -50%) rotate(10deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+}
+
+@keyframes goOut {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+
+	60% {
+		transform: translate(-50%, -50%) rotate(20deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(-120deg);
+	}
 }
