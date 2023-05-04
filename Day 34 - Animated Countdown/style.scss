@@ -42,10 +42,10 @@ body {
 
 			&.in {
 				transform: translate(-50%, -50%) rotate(0deg);
-				animation: goIn 0.5s ease-in-out forwards;
+				animation: goIn 0.5s ease-in-out;
 			}
 			&.out {
-				animation: goOut 0.5s ease-in-out forwards;
+				animation: goOut 0.5s ease-in-out;
 			}
 		}
 	}
@@ -57,7 +57,7 @@ body {
 	&.hide {
 		// display: none;
 		transform: translate(-50%, -50%) scale(0);
-		animation: hide 0.5s ease-in-out forwards; // forwards : to keep the last state of animation
+		animation: hide 0.5s ease-in-out; // forwards : to keep the last state of animation
 	}
 }
 
@@ -75,9 +75,24 @@ body {
 		text-transform: uppercase;
 	}
 
+	button {
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 5px;
+		background: $-primary-color;
+		color: $-color-white;
+		font-size: 1rem;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+		margin-top: 0.6rem;
+		&:hover {
+			background: darken($-primary-color, 10%);
+		}
+	}
+
 	&.show {
 		transform: translate(-50%, -50%) scale(1);
-		animation: show 0.5s ease-in-out forwards;
+		animation: show 0.5s ease-in-out;
 	}
 }
 
