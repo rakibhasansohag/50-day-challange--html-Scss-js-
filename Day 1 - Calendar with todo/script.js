@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 console.log('working...');
 
 // point : all the variables
@@ -10,6 +10,9 @@ const next = document.querySelector('.next');
 const todayBtn = document.querySelector('.today-btn');
 const gotoBtn = document.querySelector('.goto-btn');
 const dateInput = document.querySelector('.date-input');
+const eventDay = document.querySelector('.event-day');
+const eventDate = document.querySelector('.event-date');
+const eventsContainer = document.querySelector('.events');
 
 // point :
 let today = new Date();
@@ -33,7 +36,35 @@ const months = [
 	'December',
 ];
 
-
+// point : init calendar
+const eventsArr = [
+	{
+		day: 7,
+		month: 5,
+		year: 2023,
+		events: [
+			{
+				title: 'Event 1 : the weather is nice today',
+				time: '10:00 AM',
+			},
+			{
+				title: "Event 2 : is'nt the moon beautiful tonight",
+				time: '11:00 AM',
+			},
+		],
+	},
+	{
+		day: 10,
+		month: 5,
+		year: 2023,
+		events: [
+			{
+				title: 'Event 1 : the weather is nice today',
+				time: '10:00 AM',
+			},
+		],
+	},
+];
 
 // point : function to add days
 function initCalendar() {
@@ -59,13 +90,18 @@ function initCalendar() {
 
 	// point : add current months days
 	for (let i = 1; i <= lastDate; i++) {
+		// point : check if event exists on current day
 
-
-		
-
-
-
-
+		let event = false;
+		eventsArr.forEach((eventObj) => {
+			if (
+				eventObj.day === i &&
+				eventObj.month === month + 1 &&
+				eventObj.year === year
+			) {
+				event = true;
+			}
+		});
 
 		// point : add active class to current day
 
@@ -74,9 +110,22 @@ function initCalendar() {
 			month === today.getMonth() &&
 			year === today.getFullYear()
 		) {
-			days += `<div class="day today ">${i}</div>`;
+			// / days += `<div class="day today ">${i}</div>`;
+			// point  : if event found also add event class
+			activeDay = i;
+			getActiveDay(i);
+			updateEvents(i);
+			if (event) {
+				days += `<div class="day today active  event">${i}</div>`;
+			} else {
+				days += `<div class="day today active ">${i}</div>`;
+			}
 		} else {
-			days += `<div class="day">${i}</div>`;
+			if (event) {
+				days += `<div class="day event">${i}</div>`;
+			} else {
+				days += `<div class="day">${i}</div>`;
+			}
 		}
 	}
 
@@ -86,6 +135,9 @@ function initCalendar() {
 	}
 
 	daysContainer.innerHTML = days;
+
+	// point : add listener to days
+	addListener();
 }
 
 initCalendar();
@@ -239,3 +291,96 @@ addEventTo.addEventListener('input', (e) => {
 		}
 	}
 });
+
+//  point : add event listener to add event button
+
+function addListener() {
+	const days = document.querySelectorAll('.day');
+	days.forEach((day) => {
+		day.addEventListener('click', (e) => {
+			getActiveDay(e.target.innerHTML);
+			updateEvents(Number(e.target.innerHTML));
+			activeDay = Number(e.target.innerHTML);
+			// point : remove active
+			days.forEach((day) => {
+				day.classList.remove('active');
+			});
+			// point : if clicked prev-date or next-date switch to that month
+			if (e.target.classList.contains('prev-date')) {
+				prevMonth();
+				// point : add active to clicked day afte month is change
+				setTimeout(() => {
+					// point : add active where no prev-date or next-date
+					const days = document.querySelectorAll('.day');
+					days.forEach((day) => {
+						if (
+							!day.classList.contains('prev-date') &&
+							day.innerHTML === e.target.innerHTML
+						) {
+							day.classList.add('active');
+						}
+					});
+				}, 100);
+			} else if (e.target.classList.contains('next-date')) {
+				nextMonth();
+				// point : add active to clicked day afte month is changed
+				setTimeout(() => {
+					const days = document.querySelectorAll('.day');
+					days.forEach((day) => {
+						if (
+							!day.classList.contains('next-date') &&
+							day.innerHTML === e.target.innerHTML
+						) {
+							day.classList.add('active');
+						}
+					});
+				}, 100);
+			} else {
+				// remaining current month days
+				e.target.classList.add('active');
+			}
+		});
+	});
+}
+
+// point : function to get active day
+
+function getActiveDay(date) {
+	const day = new Date(year, month, date);
+	const dayName = day.toString().split(' ')[0];
+	eventDay.innerHTML = dayName;
+	eventDate.innerHTML = date + ' ' + months[month] + ' ' + year;
+}
+
+// point : function to show events of  that day
+
+function updateEvents(date) {
+	let events = '';
+	eventsArr.forEach((eventObj) => {
+		// point : get events of active day only
+		if (
+			date === eventObj.day &&
+			month + 1 === eventObj.month &&
+			year === eventObj.year
+		) {
+			eventObj.events.forEach((event) => {
+				events += `<div class="event">
+					<div class="title">
+						<i class="fas fa-circle"></i>
+						<h3 class="event-title">${event.title}</h3>
+					</div>
+					<div class="event-time">
+						${event.time}
+					</div>
+				</div>`;
+			});
+		}
+	});
+
+	// point : if no events found
+	if (events === '') {
+		events = `<div class="no-event">No Events ! ADD some...</div>`;
+	}
+
+	eventsContainer.innerHTML = events;
+}
