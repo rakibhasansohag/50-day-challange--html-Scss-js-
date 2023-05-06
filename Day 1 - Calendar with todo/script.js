@@ -7,6 +7,9 @@ const date = document.querySelector('.date');
 const daysContainer = document.querySelector('.days');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
+const todayBtn = document.querySelector('.today-btn');
+const gotoBtn = document.querySelector('.goto-btn');
+const dateInput = document.querySelector('.date-input');
 
 // point :
 let today = new Date();
@@ -77,6 +80,81 @@ function initCalendar() {
 
 initCalendar();
 
+//  point : add event listener to prev and next button
+prev.addEventListener('click', prevMonth);
+next.addEventListener('click', nextMonth);
+// prev month
+function prevMonth() {
+	month--;
+	if (month < 0) {
+		month = 11;
+		year--;
+	}
+	initCalendar();
+}
+// next month
+function nextMonth() {
+	month++;
+	if (month > 11) {
+		month = 0;
+		year++;
+	}
+	initCalendar();
+}
 
+// point : add event listener to days
+// daysContainer.addEventListener('click', (e) => {
+// 	if (e.target.classList.contains('day')) {
+// 		if (activeDay) {
+// 			activeDay.classList.remove('active');
+// 		}
+// 		e.target.classList.add('active');
+// 		activeDay = e.target;
+// 	}
+// });
 
+// point : add event listener to today button
+todayBtn.addEventListener('click', () => {
+	month = today.getMonth();
+	year = today.getFullYear();
+	initCalendar();
+	// console.log('today');
+});
 
+// point : add event listener to goto button
+dateInput.addEventListener('input', (e) => {
+	// point : allow only numbers
+	dateInput.value = dateInput.value.replace(/[^0-9/]/g, '');
+	// point : check if date is valid
+	if (dateInput.value.length === 2) {
+		dateInput.value += '/';
+	}
+	if (dateInput.value.length > 7) {
+		dateInput.value = dateInput.value.slice(0, 7);
+	}
+	// point : if backspace pressed
+	if (e.inputType === 'deleteContentBackward') {
+		if (dateInput.value.length === 3) {
+			dateInput.value = dateInput.value.slice(0, 2);
+		}
+	}
+});
+
+// point : function to go to date
+gotoBtn.addEventListener('click', gotoDate);
+function gotoDate() {
+	const dateArr = dateInput.value.split('/');
+
+	if (dateArr.length === 2) {
+		if (dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
+			month = dateArr[0] - 1;
+			year = dateArr[1];
+			initCalendar();
+			return;
+		}
+	}
+	// if invalid data
+	alert('Invalid Date');
+}
+
+/// task for right part of the calendar
