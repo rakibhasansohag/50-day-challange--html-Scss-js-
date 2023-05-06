@@ -20,6 +20,20 @@ body {
 	overflow: hidden;
 	background: $-primary-color;
 }
+// add color options
+
+.color-selector {
+	width: 200px;
+	height: 50px;
+	border: 1px solid black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	input {
+		cursor: pointer;
+	}
+}
 
 .container {
 	display: flex;
@@ -43,4 +57,7 @@ body {
 			transition-duration: 0s;
 		}
 	}
+}
+select option:checked {
+	color: #000; /* Change this to the desired text color */
 }

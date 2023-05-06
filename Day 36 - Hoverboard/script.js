@@ -4,8 +4,9 @@ console.log('working ....');
 // point : all the variable
 
 const container = document.querySelector('.container');
-const colors = ['#e74c3c', '#8e44ad', '#3498db', '#e67e22', '#2ecc71'];
+const colors = ['#f9ca24', '#f0932b', '#eb4d4b', '#6ab04c', '#c7ecee'];
 const SQUARES = 500;
+const colorPicker = document.querySelector('#color-picker');
 
 // point : all the function
 for (let i = 0; i < SQUARES; i++) {
@@ -35,3 +36,11 @@ function removeColor(element) {
 function getRandomColor() {
 	return colors[Math.floor(Math.random() * colors.length)];
 }
+
+// point : color picker
+colorPicker.addEventListener('change', (e) => {
+	container.querySelectorAll('.square').forEach((square) => {
+		square.style.background = e.target.value;
+		square.style.boxShadow = `0 0 2px ${e.target.value}, 0 0 10px ${e.target.value}`;
+	});
+});
