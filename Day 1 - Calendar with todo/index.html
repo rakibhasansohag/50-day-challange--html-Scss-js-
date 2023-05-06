@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/df8d6121fb.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./style.css">
 	<title>Modern Calender</title>
 </head>
@@ -12,6 +13,47 @@
 <body>
 
 
+	<div class="container">
+		<div class="left">
+			<div class="calendar">
+				<div class="month">
+					<i class="fa fa-angle-left prev"></i>
+					<div class="date">May 2023</div>
+					<i class="fa fa-angle-right next"></i>
+				</div>
+				<!-- / weekdays -->
+				<div class="weekdays">
+					<div>Sun</div>
+					<div>Mon</div>
+					<div>Tue</div>
+					<div>Wed</div>
+					<div>Thu</div>
+					<div>Fri</div>
+					<div>Sat</div>
+				</div>
+
+				<!-- / days  -->
+
+				<div class="days">
+					<!-- day will be add dynamically -->
+					<div class="day">1</div>
+					<div class="day">2</div>
+					<div class="day">3</div>
+					<div class="day">4</div>
+					<div class="day">5</div>
+					<div class="day">6</div>
+					<!-- <div class="day">7</div> -->
+				</div>
+				<div class="goto-today">
+					<div class="goto">
+						<input type="text" placeholder="mm/yyyy" class="date-input">
+						<button class="goto-btn">go</button>
+					</div>
+					<button class="today-btn">Today</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
