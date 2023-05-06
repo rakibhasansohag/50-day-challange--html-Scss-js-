@@ -38,35 +38,37 @@ const months = [
 ];
 
 // point : init calendar
-const eventsArr = [
-	{
-		day: 7,
-		month: 5,
-		year: 2023,
-		events: [
-			{
-				title: 'Event 1 : the weather is nice today',
-				time: '10:00 AM',
-			},
-			{
-				title: "Event 2 : is'nt the moon beautiful tonight",
-				time: '11:00 AM',
-			},
-		],
-	},
-	{
-		day: 10,
-		month: 5,
-		year: 2023,
-		events: [
-			{
-				title: 'Event 1 : the weather is nice today',
-				time: '10:00 AM',
-			},
-		],
-	},
-];
-
+// const eventsArr = [
+// 	{
+// 		day: 7,
+// 		month: 5,
+// 		year: 2023,
+// 		events: [
+// 			{
+// 				title: 'Event 1 : the weather is nice today',
+// 				time: '10:00 AM',
+// 			},
+// 			{
+// 				title: "Event 2 : is'nt the moon beautiful tonight",
+// 				time: '11:00 AM',
+// 			},
+// 		],
+// 	},
+// 	{
+// 		day: 10,
+// 		month: 5,
+// 		year: 2023,
+// 		events: [
+// 			{
+// 				title: 'Event 1 : the weather is nice today',
+// 				time: '10:00 AM',
+// 			},
+// 		],
+// 	},
+// ];
+// point : set a empty array to store events
+let eventsArr = [];
+getEvents();
 // point : function to add days
 function initCalendar() {
 	// to get prev months days and current month all days and next months days
@@ -384,6 +386,9 @@ function updateEvents(date) {
 	}
 
 	eventsContainer.innerHTML = events;
+
+	// point : save events in local storage
+	saveEvents();
 }
 
 // point : creates a function  to add events
@@ -514,3 +519,15 @@ eventsContainer.addEventListener('click', (e) => {
 	}
 });
 
+//  add local storage on the events
+// point : function to save events in local storage
+function saveEvents() {
+	localStorage.setItem('events', JSON.stringify(eventsArr));
+}
+
+function getEvents() {
+	if (localStorage.getItem('events' === null)) {
+		return;
+	}
+	eventsArr.push(...JSON.parse(localStorage.getItem('events')));
+}
