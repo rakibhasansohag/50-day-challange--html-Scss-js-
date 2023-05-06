@@ -481,4 +481,36 @@ function convertTime(time) {
 	return time;
 }
 
+// point : function to delete event
+eventsContainer.addEventListener('click', (e) => {
+	if (e.target.classList.contains('event')) {
+		const eventTitle = e.target.children[0].children[1].innerHTML;
+		/// get the title of the event than search in array by title and delete it
+		eventsArr.forEach((eventObj) => {
+			if (
+				eventObj.day === activeDay &&
+				eventObj.month === month + 1 &&
+				eventObj.year === year
+			) {
+				eventObj.events.forEach((event, index) => {
+					if (event.title === eventTitle) {
+						eventObj.events.splice(index, 1);
+					}
+				});
+
+				// / if no events left remove event class from day
+				if (eventObj.events.length === 0) {
+					eventsArr.splice(eventsArr.indexOf(eventObj), 1);
+					// / after remove complete event object check if event class is present on that day
+
+					const activeDayElement = document.querySelector('.day.active');
+					activeDayElement.classList.remove('event');
+				}
+			}
+		});
+
+		// point :  after removing from array update events
+		updateEvents(activeDay);
+	}
+});
 
