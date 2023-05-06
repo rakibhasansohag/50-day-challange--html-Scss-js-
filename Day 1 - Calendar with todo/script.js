@@ -13,8 +13,9 @@ const dateInput = document.querySelector('.date-input');
 const eventDay = document.querySelector('.event-day');
 const eventDate = document.querySelector('.event-date');
 const eventsContainer = document.querySelector('.events');
+const addEventSubmitBtn = document.querySelector('.add-event-btn');
 
-// point :
+// point : all the initial values
 let today = new Date();
 // console.log(today);
 let activeDay;
@@ -384,3 +385,100 @@ function updateEvents(date) {
 
 	eventsContainer.innerHTML = events;
 }
+
+// point : creates a function  to add events
+
+addEventSubmitBtn.addEventListener('click', () => {
+	const eventTitle = addEventName.value;
+	const eventTimeFrom = addEventFrom.value;
+	const eventTimeTo = addEventTo.value;
+
+	// point : check if all fields are filled
+
+	if (eventTitle === '' || eventTimeFrom === '' || eventTimeTo === '') {
+		alert('Please fill all the fields');
+		return;
+	}
+
+	const timeFromArr = eventTimeFrom.split(':');
+	const timeToArr = eventTimeTo.split(':');
+
+	// point : check if time is valid
+	if (
+		timeFromArr.length !== 2 ||
+		timeToArr.length !== 2 ||
+		timeFromArr[0] > 23 ||
+		timeFromArr[1] > 59 ||
+		timeToArr[0] > 23 ||
+		timeToArr[1] > 59
+	) {
+		alert('Invalid Time Format !');
+		return; // / to stop the function
+	}
+
+	const timeFrom = convertTime(eventTimeFrom);
+	const timeTo = convertTime(eventTimeTo);
+
+	// point : new event object
+	const newEvent = {
+		title: eventTitle,
+		time: timeFrom + ' - ' + timeTo,
+	};
+
+	let eventAdded = false;
+	// check if event already exists on that day
+	if (eventsArr.length > 0) {
+		// point  : check if event already exists on that day
+		eventsArr.forEach((eventObj) => {
+			if (
+				eventObj.day === activeDay &&
+				eventObj.month === month + 1 &&
+				eventObj.year === year
+			) {
+				eventObj.events.push(newEvent);
+				eventAdded = true;
+			}
+		});
+	}
+
+	// point : if no event found on that day
+	if (!eventAdded) {
+		const newEventObj = {
+			day: activeDay,
+			month: month + 1,
+			year: year,
+			events: [newEvent],
+		};
+		eventsArr.push(newEventObj);
+	}
+
+	// point : remove active from add event form
+	addEventContainer.classList.remove('active');
+	// clear the form
+	addEventName.value = '';
+	addEventFrom.value = '';
+	addEventTo.value = '';
+
+	// point : update events
+	updateEvents(activeDay);
+
+	// point:   also add event class to newly added day if not already added
+	const activeDayElement = document.querySelector('.day.active');
+	if (!activeDayElement.classList.contains('event')) {
+		activeDayElement.classList.add('event');
+	}
+});
+
+// point : function to convert time to 12 hour format
+function convertTime(time) {
+	let timeArr = time.split(':');
+	let timeHours = Number(timeArr[0]);
+	let timeMinutes = Number(timeArr[1]);
+	// let timeValue;
+	let timeFormate = timeHours >= 12 ? 'PM' : 'AM';
+	timeHours = timeHours % 12 || 12;
+	time = timeHours + ':' + timeMinutes + ' ' + timeFormate;
+	return time;
+}
+
+
