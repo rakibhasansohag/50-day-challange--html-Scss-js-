@@ -524,6 +524,53 @@ body {
 	pointer-events: none;
 }
 
+/* / select year list */
+
+.year-dropdown {
+	position: relative;
+	width: 150px;
+}
+
+.year-dropdown select {
+	width: 100%;
+	padding: 8px;
+	border: none;
+	border-radius: 5px;
+	background-color: #f1f1f1;
+	color: #555;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+/* Style the arrow inside the select element */
+.year-dropdown select::after {
+	content: '\25BC';
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 8px;
+	background-color: #f1f1f1;
+	color: #555;
+	pointer-events: none;
+	font-size: 16px;
+}
+
+/* Change color of select arrow on hover */
+.year-dropdown select:hover::after {
+	color: #000;
+}
+/* / select year list */
+
+#prev-year-btn,
+#next-year-btn {
+	padding: 5px 10px;
+	background-color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: inherit;
+}
+
 /* / responsive design start */
 
 @media only screen and (max-width: 1000px) {

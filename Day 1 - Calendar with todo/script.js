@@ -70,12 +70,13 @@ const months = [
 let eventsArr = [];
 getEvents();
 // point : function to add days
-function initCalendar() {
+function initCalendar(y, m) {
 	// to get prev months days and current month all days and next months days
 	const firstDay = new Date(year, month, 1);
 	const lastDay = new Date(year, month + 1, 0);
 	const prevLastDay = new Date(year, month, 0);
-	const prevDays = prevLastDay.getDate();
+	// const prevDays = prevLastDay.getDate();
+	const prevDays = new Date(year, month, 0).getDate();
 	const lastDate = lastDay.getDate();
 	const day = firstDay.getDay();
 	const nextDays = 7 - lastDay.getDay() - 1;
@@ -87,8 +88,12 @@ function initCalendar() {
 
 	let days = '';
 	// point : add prev months days
-	for (let i = day; i > 0; i--) {
-		days += `<div class="day prev-date">${prevDays - i + 1}</div>`;
+	// for (let i = day; i > 0; i--) {
+	// 	days += `<div class="day prev-date">${prevDays - i + 1}</div>`;
+	// }
+
+	for (let i = day - 1; i >= 0; i--) {
+		days += `<div class="day prev-date">${prevDays - i}</div>`;
 	}
 
 	// point : add current months days
@@ -141,6 +146,8 @@ function initCalendar() {
 
 	// point : add listener to days
 	addListener();
+
+	return days;
 }
 
 initCalendar();
@@ -538,3 +545,26 @@ function getEvents() {
 	}
 	eventsArr.push(...JSON.parse(localStorage.getItem('events')));
 }
+
+// Get the year dropdown and year list
+const yearDropdown = document.querySelector('.year-dropdown');
+const yearList = document.querySelector('#year-list');
+
+// Populate the year dropdown with options
+for (let year = 2023; year >= 1900; year--) {
+	const option = document.createElement('option');
+	option.value = year;
+	option.text = year;
+	yearList.appendChild(option);
+}
+
+// Handle changes to the selected year
+yearList.addEventListener('change', function () {
+	const selectedYear = yearList.value;
+	console.log(`Selected year: ${selectedYear}`);
+	// calendar.innerHTML = selectedYear;
+	const calendarHTML = initCalendar(selectedYear, 0);
+	calendar.innerHTML = calendarHTML;
+});
+
+console.log(initCalendar());
