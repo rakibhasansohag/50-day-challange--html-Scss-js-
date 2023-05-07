@@ -72,3 +72,35 @@ h1 {
 		}
 	}
 }
+
+// / search features
+
+.search-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	max-width: 1200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	input {
+		padding: 10px;
+		border-radius: 10px;
+		border: none;
+		outline: none;
+		font-size: 1.2em;
+	}
+
+	button {
+		padding: 10px;
+		border-radius: 10px;
+		border: none;
+		outline: none;
+		font-size: 1.2em;
+		margin-left: 10px;
+		background-color: $-secondary-color;
+		color: $-color-white;
+		cursor: pointer;
+	}
+}

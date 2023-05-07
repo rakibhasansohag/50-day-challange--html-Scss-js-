@@ -4,6 +4,8 @@ console.log('working ....');
 
 // point : all the variables
 const poke_container = document.getElementById('poke-container');
+const searchInput = document.getElementById('search-input');
+
 const pokemon_count = 150;
 const colors = {
 	fire: '#FDDFDF',
@@ -70,3 +72,20 @@ const createPokemonCard = (pokemon) => {
 	poke_container.appendChild(pokemonEl);
 };
 fetchPokemons();
+
+// point : search pokemon
+searchInput.addEventListener('input', (e) => {
+	const searchString = searchInput.value.toLowerCase();
+	const allPokemon = document.querySelectorAll('.pokemon');
+	allPokemon.forEach((pokemon) => {
+		const name = pokemon.querySelector('.name').innerText.toLowerCase();
+
+		if (name.indexOf(searchString) > -1) {
+			pokemon.style.display = 'block';
+		} else {
+			pokemon.style.display = 'none';
+		}
+	});
+});
+
+searchInput.focus();
