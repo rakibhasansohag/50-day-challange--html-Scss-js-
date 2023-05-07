@@ -205,6 +205,13 @@ dateInput.addEventListener('input', (e) => {
 	}
 });
 
+// point : add event listener to goto button on click on enter
+dateInput.addEventListener('keyup', (e) => {
+	if (e.key === 'Enter') {
+		gotoDate();
+	}
+});
+
 // point : function to go to date
 gotoBtn.addEventListener('click', gotoDate);
 function gotoDate() {
