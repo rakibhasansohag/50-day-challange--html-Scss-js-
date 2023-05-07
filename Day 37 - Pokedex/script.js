@@ -39,6 +39,8 @@ const getPokemon = async (id) => {
 	createPokemonCard(data);
 };
 
+console.log(getPokemon.url);
+
 // point : create pokemon card
 const createPokemonCard = (pokemon) => {
 	const pokemonEl = document.createElement('div');
@@ -52,9 +54,9 @@ const createPokemonCard = (pokemon) => {
 
 	const pokeInnerHTML = `
 		<div class="img-container">
-			<img src="https://pokeres.bastionbot.org/images/pokemon/${
+			<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
 				pokemon.id
-			}.png" alt="${name}" />
+			}.png"" alt="${name}" />
 		</div>
 		<div class="info">
 			<span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
