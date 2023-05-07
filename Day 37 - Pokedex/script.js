@@ -1,6 +1,7 @@
 'use strict';
 console.log('working ....');
 // task fetch this data ( https://pokeapi.co/api/v2/pokemon/1/ ) and display it in the console
+// / inspired by ( https://stackblitz.com/edit/pokemon-api?file=index.js )
 
 // point : all the variables
 const poke_container = document.getElementById('poke-container');
@@ -69,6 +70,8 @@ const createPokemonCard = (pokemon) => {
 
 	pokemonEl.innerHTML = pokeInnerHTML;
 
+	pokemonEl.classList.add('show'); // point : add class show the transition
+
 	poke_container.appendChild(pokemonEl);
 };
 fetchPokemons();
@@ -88,4 +91,4 @@ searchInput.addEventListener('input', (e) => {
 	});
 });
 
-searchInput.focus();
+searchInput.focus(); /// search container will not be focused
