@@ -30,6 +30,7 @@ document.getElementById('btn').addEventListener('click', () => {
 });
 
 // point: Password strength function
+
 function checkPasswordStrength(password) {
 	const regexList = [
 		/\d/, // Match a digit
