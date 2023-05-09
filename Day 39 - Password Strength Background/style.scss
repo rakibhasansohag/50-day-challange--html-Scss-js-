@@ -33,7 +33,16 @@ body {
 	filter: blur(20px);
 }
 .password-strength-feedback {
-	color: #ff0000;
 	font-weight: bold;
 	margin-top: 0.5rem;
+}
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+.orange {
+	color: orange;
 }
