@@ -18,6 +18,17 @@ body {
 	justify-content: center;
 	height: 100vh;
 	overflow: hidden;
-	background: $-primary-color;
 	flex-direction: column;
+}
+
+.background {
+	background: url('https://images.unsplash.com/photo-1543253539-58c7d1c00c8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1934&q=80')
+		no-repeat center center/cover;
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -20px;
+	bottom: -20px;
+	z-index: -1;
+	filter: blur(20px);
 }

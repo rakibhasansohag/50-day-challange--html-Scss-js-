@@ -6,22 +6,39 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://kit.fontawesome.com/df8d6121fb.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
 	<link rel="stylesheet" href="/css/style.main.css">
 	<title> Password Strength Background</title>
 </head>
 
 <body>
 
-	<div class="container">
+	<div class="background" id="background"></div>
+
+	<div class="bg-white rounded p-10 text-center shadow-md">
+		<h1 class="text-3xl"> Image Password Strength </h1>
+		<p class="text-sml mt-3 text-gray-700">Change The Password To See The Effect</p>
+		<div class="my-4 text-left">
+			<label for="email" class="text-gray-900">Email</label>
+			<input type="text" class="border block w-full p-2 mt-2 rounded" id="email"
+				placeholder="Enter Your email...">
+		</div>
+		<div class="my-4 text-left">
+			<label for="password" class="text-gray-900">Password</label>
+			<input type="text" class="border block w-full p-2 mt-2 rounded" id="password"
+				placeholder="Enter Your password...">
+		</div>
+
+
+		<button class="bg-black text-white py-2 mt-4 inline-block w-full rounded" type="submit">Submit</button>
 
 	</div>
 
 
-
 	<!-- javascript file start -->
-
 	<script src="./script.js"></script>
-
+	<script src="https://cdn.tailwindcss.com"></script>
 </body>
 
 </html>
