@@ -27,6 +27,7 @@ body {
 	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 	overflow: hidden;
 	width: 300px;
+	transition: background-color 0.3s ease-in-out;
 
 	.header {
 		background-color: $-secondary-color;
@@ -62,14 +63,17 @@ body {
 		margin: 0;
 		max-height: 400px;
 		overflow-y: auto;
+		overflow-x: hidden;
 
 		li {
 			padding: 20px;
 			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 			transition: all 0.3s ease-in-out;
 			display: flex;
+
 			&:hover {
 				background-color: rgba(0, 0, 0, 0.1);
+				transform: scale(1.02);
 			}
 
 			&:last-child {
@@ -86,7 +90,12 @@ body {
 			}
 
 			&.hide {
-				display: none;
+				// display: none; /// here is a bug
+				opacity: 0;
+				height: 0;
+				padding: 0;
+				transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out,
+					padding 0.3s ease-in-out;
 			}
 
 			img {
