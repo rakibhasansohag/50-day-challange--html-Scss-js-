@@ -39,7 +39,7 @@ h1 {
 			top: -25px;
 			left: 110px;
 			font-size: 14px;
-			background-color: $-color-white;
+			// background-color: $-color-white;
 			width: 80px;
 			text-align: center;
 			padding: 5px 0;
@@ -69,7 +69,7 @@ h1 {
 
 		// point : for Firefox
 		&::-moz-range-track {
-			background: linear-gradient(to right, purple, pink);
+			background: linear-gradient(to right, #3498db, #8e44ad);
 			border-radius: 4px;
 			width: 100%;
 			height: 16px;
@@ -79,7 +79,7 @@ h1 {
 		&::-moz-range-thumb {
 			height: 24px;
 			width: 24px;
-			background: linear-gradient(to right, purple, pink);
+			background: linear-gradient(to right, #3498db, #8e44ad);
 			border-radius: 50%;
 			border: 1px solid purple;
 			margin-top: -7px;
@@ -88,7 +88,7 @@ h1 {
 
 		// point : for Internet Explorer
 		&::-ms-track {
-			background: linear-gradient(to right, purple, pink);
+			background: linear-gradient(to right, #e91e63, #ff9800);
 			border-radius: 4px;
 			width: 100%;
 			height: 16px;
@@ -98,9 +98,9 @@ h1 {
 		&::-ms-thumb {
 			height: 24px;
 			width: 24px;
-			background: linear-gradient(to right, purple, pink);
+			background: linear-gradient(to right, #e91e63, #ff9800);
 			border-radius: 50%;
-			border: 1px solid purple;
+			border: 1px solid #ff9800;
 			margin-top: -7px;
 			cursor: pointer;
 		}
