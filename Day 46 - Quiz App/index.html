@@ -7,12 +7,43 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://kit.fontawesome.com/df8d6121fb.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/css/style.main.css">
-	<title> Kinetic CSS Loader</title>
+	<title> Quiz App</title>
 </head>
 
 <body>
 
-	<div class="container">
+	<div class="quiz-container" id="quiz">
+
+		<div class="quiz-header">
+
+			<h2 id="question">Question Text</h2>
+
+			<ul>
+				<li>
+					<input type="radio" name="answer" id="a" class="answer">
+					<label for="a" id="a_text">Question1</label>
+				</li>
+
+				<li>
+					<input type="radio" name="answer" id="b" class="answer">
+					<label for="b" id="b_text">Question2</label>
+				</li>
+
+				<li>
+					<input type="radio" name="answer" id="c" class="answer">
+					<label for="c" id="c_text">Question3</label>
+				</li>
+
+				<li>
+					<input type="radio" name="answer" id="d" class="answer">
+					<label for="d" id="d_text">Question4</label>
+				</li>
+
+			</ul>
+
+		</div>
+
+		<button class="submit">Submit</button>
 
 	</div>
 
