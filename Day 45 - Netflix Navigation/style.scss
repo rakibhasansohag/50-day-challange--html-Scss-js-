@@ -18,6 +18,46 @@ body {
 	justify-content: center;
 	height: 100vh;
 	overflow: hidden;
-	background: $-primary-color;
+	// background: $-primary-color;
 	flex-direction: column;
+}
+
+// point : global style
+
+.text {
+	color: $-secondary-color;
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+}
+
+.logo {
+	width: 150px;
+}
+
+.nav-btn {
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	font-size: 1.2rem;
+}
+
+.open-btn {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	transform: translateX(-100%);
+	transition: transform 0.5s ease-in-out;
+	&.visible {
+		transform: translateX(0);
+		transition: transform 0.5s ease-in-out;
+	}
 }
