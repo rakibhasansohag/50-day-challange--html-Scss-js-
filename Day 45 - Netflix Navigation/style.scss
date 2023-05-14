@@ -10,6 +10,7 @@ $-color-white: #fff;
 	outline: none;
 	margin: 0;
 	padding: 0;
+	list-style: none;
 }
 body {
 	font-family: 'Roboto', sans-serif;
@@ -46,7 +47,14 @@ body {
 .open-btn {
 	position: fixed;
 	top: 10px;
-	right: 10px;
+	left: 10px;
+}
+
+.close-btn {
+	position: absolute;
+	top: 40px;
+	right: 30px;
+	opacity: 0.3;
 }
 
 .nav {
@@ -55,9 +63,58 @@ body {
 	left: 0;
 	height: 100vh;
 	transform: translateX(-100%);
-	transition: transform 0.5s ease-in-out;
+	transition: transform 0.3s ease-in-out;
 	&.visible {
 		transform: translateX(0);
-		transition: transform 0.5s ease-in-out;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	&.nav-black {
+		background-color: rgb(34, 31, 31);
+		width: 60%;
+		max-width: 480px;
+		min-width: 320px;
+		transition-delay: 0.4s;
+		&.visible {
+			transition-delay: 0s;
+		}
+	}
+
+	&.nav-red {
+		background-color: rgb(229, 9, 20);
+		width: 95%;
+		transition-delay: 0.2s;
+		&.visible {
+			transition-delay: 0.2s;
+		}
+	}
+	&.nav-white {
+		background-color: $-color-white;
+		width: 95%;
+		padding: 40px;
+		position: relative;
+		transition-delay: 0s;
+		&.visible {
+			transition-delay: 0.4s;
+		}
+		.list {
+			padding: 0;
+
+			li {
+				margin: 20px 0;
+
+				a {
+					color: rgb(34, 31, 31);
+					font-size: 0.98rem;
+					text-decoration: none;
+					text-transform: uppercase;
+				}
+
+				ul {
+					list-style-type: none;
+					padding-left: 20px;
+				}
+			}
+		}
 	}
 }
