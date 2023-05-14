@@ -106,7 +106,9 @@ function loadQuiz() {
 	// point: for quiz data to deselect the answer
 	deselectAnswers();
 
-	const currentQuizData = quizData[currentQuiz];
+	const randomQuestionIndex = Math.floor(Math.random() * quizData.length);
+
+	const currentQuizData = quizData[randomQuestionIndex];
 	questionEl.innerText = currentQuizData.question;
 	aText.innerText = currentQuizData.a;
 	bText.innerText = currentQuizData.b;
