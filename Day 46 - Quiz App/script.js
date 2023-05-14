@@ -128,6 +128,8 @@ function deselectAnswers() {
 
 // point : add event listener to the submit button
 submitBtn.addEventListener('click', () => {
+	// submitBtn.disabled = true;
+
 	// check to see the answer
 	const answer = getSelected();
 
@@ -145,6 +147,10 @@ submitBtn.addEventListener('click', () => {
 				<button onclick="location.reload()">Reload</button>
 			`;
 		}
+
+		// point : reset the timer
+		clearInterval(timeInterval);
+		startTimer();
 	}
 });
 
