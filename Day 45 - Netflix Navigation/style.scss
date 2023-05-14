@@ -35,6 +35,8 @@ body {
 
 .logo {
 	width: 150px;
+	animation: spin 2s linear;
+	margin-bottom: 30px;
 }
 
 .nav-btn {
@@ -114,7 +116,22 @@ body {
 					list-style-type: none;
 					padding-left: 20px;
 				}
+
+				// &:hover {
+				// 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+				// }
 			}
 		}
+	}
+}
+
+// point : add animation
+
+@keyframes spin {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
 	}
 }
