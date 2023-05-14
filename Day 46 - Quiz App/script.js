@@ -94,17 +94,22 @@ const bText = document.getElementById('b_text');
 const cText = document.getElementById('c_text');
 const dText = document.getElementById('d_text');
 const submitBtn = document.getElementById('submit');
+const timerElement = document.getElementById('timer');
 
 // point: for quiz data
 let currentQuiz = 0;
 let score = 0;
-
+let timeInterval; // to store the setInterval() function
+let timeLeft;
 // point: for quiz data to load/get the quiz
 loadQuiz();
 
 function loadQuiz() {
 	// point: for quiz data to deselect the answer
 	deselectAnswers();
+
+	// point :  Start time timer
+	startTimer();
 
 	const randomQuestionIndex = Math.floor(Math.random() * quizData.length);
 
@@ -154,4 +159,38 @@ function getSelected() {
 	});
 
 	return answer;
+}
+
+// point: start timer
+function startTimer() {
+	const timeLimit = 10;
+	timeLeft = timeLimit; // Initial time left
+
+	updateTimerDisplay();
+
+	timeInterval = setInterval(() => {
+		timeLeft--;
+		updateTimerDisplay();
+
+		if (timeLeft === 0) {
+			clearInterval(timeInterval);
+			handleTimeUp();
+		}
+	}, 1000);
+}
+
+function updateTimerDisplay() {
+	timerElement.innerText = `Time Left: ${timeLeft} seconds`;
+}
+
+function handleTimeUp() {
+	currentQuiz++;
+	if (currentQuiz < quizData.length) {
+		loadQuiz();
+	} else {
+		quiz.innerHTML = `
+      <h2 class="h2">You answered ${score}/${quizData.length} questions correctly</h2>
+      <button onclick="location.reload()">Reload</button>
+    `;
+	}
 }

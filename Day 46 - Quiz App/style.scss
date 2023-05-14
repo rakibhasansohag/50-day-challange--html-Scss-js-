@@ -84,3 +84,41 @@ button {
 	border-radius: 10px;
 	color: black;
 }
+
+// point : for timer features add
+.timer-container {
+	position: relative;
+	height: 15px;
+	width: 100%;
+	background-color: #ddd;
+	border-radius: 5px;
+
+	.timer-bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: #8e44ad;
+		border-radius: 5px;
+		animation: timer-animation linear;
+	}
+	.timer {
+		position: relative;
+		z-index: 1;
+		color: #fff;
+		letter-spacing: 1px;
+		font-size: 0.8rem;
+		font-weight: bold;
+		padding: 0 5px;
+	}
+}
+
+@keyframes timer-animation {
+	0% {
+		width: 100%;
+	}
+	100% {
+		width: 0%;
+	}
+}
