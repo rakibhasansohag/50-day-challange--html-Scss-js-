@@ -95,6 +95,7 @@ const cText = document.getElementById('c_text');
 const dText = document.getElementById('d_text');
 const submitBtn = document.getElementById('submit');
 const timerElement = document.getElementById('timer');
+const progressText = document.getElementById('progress');
 
 // point: initial values
 let currentQuiz = 0;
@@ -121,6 +122,8 @@ function loadQuiz() {
 	bText.innerText = currentQuizData.b;
 	cText.innerText = currentQuizData.c;
 	dText.innerText = currentQuizData.d;
+
+	updateProgress();
 }
 
 // point: deselect the answer
@@ -206,4 +209,9 @@ function handleTimeUp() {
       <button onclick="location.reload()">Reload</button>
     `;
 	}
+}
+
+// point : progress function
+function updateProgress() {
+	progressText.innerText = `Question ${currentQuiz + 1}/${quizData.length}`;
 }

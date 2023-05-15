@@ -122,3 +122,25 @@ button {
 		width: 0%;
 	}
 }
+
+// point  : progress style
+
+.progress {
+	font-size: 1.1rem;
+	margin-bottom: 20px;
+}
+#submit {
+	animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
