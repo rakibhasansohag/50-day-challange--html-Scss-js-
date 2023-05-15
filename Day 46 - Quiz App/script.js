@@ -96,11 +96,13 @@ const dText = document.getElementById('d_text');
 const submitBtn = document.getElementById('submit');
 const timerElement = document.getElementById('timer');
 
-// point: for quiz data
+// point: initial values
 let currentQuiz = 0;
 let score = 0;
 let timeInterval; // to store the setInterval() function
 let timeLeft;
+let shouldResetTimer = false;
+
 // point: for quiz data to load/get the quiz
 loadQuiz();
 
@@ -149,8 +151,7 @@ submitBtn.addEventListener('click', () => {
 		}
 
 		// point : reset the timer
-		clearInterval(timeInterval);
-		startTimer();
+		shouldResetTimer = true;
 	}
 });
 
@@ -181,6 +182,12 @@ function startTimer() {
 		if (timeLeft === 0) {
 			clearInterval(timeInterval);
 			handleTimeUp();
+		}
+
+		if (shouldResetTimer) {
+			clearInterval(timeInterval);
+			resetTimer();
+			shouldResetTimer = false;
 		}
 	}, 1000);
 }
