@@ -1,25 +1,25 @@
 'use strict';
-console.log('working ....');
+console.log('working ...');
 
 // point: all the variables
 const container = document.querySelector('.container');
-const unsplashUrl = 'https://source.unsplash.com/user/wsanter/';
 const rows = 10;
+const apiKey = 'N1RKr4Q9WZs1CHcfNEvfqNup9sklLQIOzP1zTGcmqxU';
+const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${
+	rows * 3
+}`;
 
-// point: all the functions
-
-for (let i = 0; i < rows * 3; i++) {
-	const img = document.createElement('img');
-	img.src = `${unsplashUrl}${getRandomSize()}`;
-	container.appendChild(img);
-}
-
-function getRandomSize() {
-	return `${getRandomNumber()}x${getRandomNumber()}`;
-}
-
-function getRandomNumber() {
-	return Math.floor(Math.random() * 10) + 300;
-}
-
-// point: all the event listeners
+// point:  fetch the data
+fetch(apiUrl)
+	.then((response) => response.json())
+	.then((data) => {
+		data.forEach((photo) => {
+			const img = document.createElement('img');
+			img.src = photo.urls.regular;
+			img.alt = photo.alt_description;
+			container.appendChild(img);
+		});
+	})
+	.catch((error) => {
+		console.error('Error fetching random images:', error);
+	});
