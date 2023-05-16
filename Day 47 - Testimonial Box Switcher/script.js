@@ -87,6 +87,11 @@ function updateTestimonial() {
 	if (id > testimonials.length - 1) {
 		id = 0;
 	}
+
+	testimonialsContainer.classList.remove('animate');
+	setTimeout(() => {
+		testimonialsContainer.classList.add('animate');
+	}, 100);
 }
 
 // point : for time interval
