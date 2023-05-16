@@ -17,6 +17,11 @@ fetch(apiUrl)
 			const img = document.createElement('img');
 			img.src = photo.urls.regular;
 			img.alt = photo.alt_description;
+
+			img.addEventListener('load', () => {
+				img.classList.add('loaded');
+			});
+
 			container.appendChild(img);
 		});
 	})
