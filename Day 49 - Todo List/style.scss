@@ -71,7 +71,12 @@ h1 {
 		align-items: center;
 		justify-content: space-between;
 		background-color: #f8f8f8;
+		cursor: pointer;
 		transition: background-color 0.3s;
+		opacity: 0;
+
+		animation: fade-in 0.5s ease-in-out forwards,
+			scale-in 0.3s ease-in-out 0.1s forwards;
 
 		&:nth-child(even) {
 			background-color: #fff;
@@ -102,10 +107,12 @@ h1 {
 		.todo-options {
 			display: flex;
 			gap: 0.5rem;
+			align-items: center;
 
 			i {
 				cursor: pointer;
 				transition: color 0.3s;
+				font-size: 1.5rem;
 
 				&:hover {
 					color: rgb(179, 131, 226);
@@ -121,4 +128,27 @@ small {
 	text-align: center;
 	font-size: 1.2rem;
 	letter-spacing: 1px;
+}
+
+// point: animation
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes scale-in {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
 }

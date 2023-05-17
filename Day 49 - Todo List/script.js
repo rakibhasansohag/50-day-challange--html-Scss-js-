@@ -44,8 +44,15 @@ function addTodoElement(todo) {
 	todoElement.innerHTML = `
     <span class="todo-text">${todo.text}</span>
     <div class="todo-options">
-      <i class="fas fa-check-circle"></i>
-      <i class="fas fa-trash"></i>
+      <button class="complete-button">
+        <i class="fas fa-check-circle"></i>
+      </button>
+      <button class="edit-button">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button class="delete-button">
+        <i class="fas fa-trash"></i>
+      </button>
     </div>
   `;
 	todoElement.classList.add('todo-item');
@@ -58,15 +65,21 @@ function addTodoElement(todo) {
 		toggleTodoCompletion(todo.id);
 	});
 
-	const todoOptions = todoElement.querySelector('.todo-options');
-	const completionIcon = todoOptions.querySelector('.fa-check-circle');
-	completionIcon.addEventListener('click', (e) => {
-		e.stopPropagation(); // / Prevent the click event from bubbling up to the todoText element
-		toggleTodoCompletion(todo.id);
+	const completeButton = todoElement.querySelector('.complete-button');
+	completeButton.addEventListener('click', (e) => {
+		e.stopPropagation();
+		todoElement.classList.toggle('completed');
+		updateLocalStorage();
 	});
 
-	const deleteIcon = todoOptions.querySelector('.fa-trash');
-	deleteIcon.addEventListener('click', (e) => {
+	const editButton = todoElement.querySelector('.edit-button');
+	editButton.addEventListener('click', (e) => {
+		e.stopPropagation();
+		handleEdit(todoElement, todo.id);
+	});
+
+	const deleteButton = todoElement.querySelector('.delete-button');
+	deleteButton.addEventListener('click', (e) => {
 		e.stopPropagation();
 		deleteTodoElement(todo.id);
 		updateLocalStorage();
@@ -80,6 +93,23 @@ function addTodoElement(todo) {
 
 	todosUl.appendChild(todoElement);
 }
+
+function handleEdit(todoElement, todoId) {
+	const todoText = todoElement.querySelector('.todo-text');
+	const currentText = todoText.textContent;
+	const newText = prompt('Enter new text:', currentText);
+
+	if (newText) {
+		todoText.textContent = newText;
+		todos.forEach((todo) => {
+			if (todo.id === todoId) {
+				todo.text = newText;
+			}
+		});
+		updateLocalStorage();
+	}
+}
+
 function toggleTodoCompletion(todoId) {
 	todos = todos.map((todo) => {
 		if (todo.id === todoId) {
