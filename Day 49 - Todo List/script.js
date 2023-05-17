@@ -9,6 +9,7 @@ const todosUl = document.getElementById('todos');
 let todos = JSON.parse(localStorage.getItem('todos'));
 
 input.focus();
+
 // Point: Todos
 if (todos) {
 	todos.forEach((todo) => addTodoElement(todo));
@@ -68,8 +69,7 @@ function addTodoElement(todo) {
 	const completeButton = todoElement.querySelector('.complete-button');
 	completeButton.addEventListener('click', (e) => {
 		e.stopPropagation();
-		todoElement.classList.toggle('completed');
-		updateLocalStorage();
+		toggleTodoCompletion(todo.id);
 	});
 
 	const editButton = todoElement.querySelector('.edit-button');
@@ -82,13 +82,11 @@ function addTodoElement(todo) {
 	deleteButton.addEventListener('click', (e) => {
 		e.stopPropagation();
 		deleteTodoElement(todo.id);
-		updateLocalStorage();
 	});
 
 	todoElement.addEventListener('contextmenu', (e) => {
 		e.preventDefault();
 		deleteTodoElement(todo.id);
-		updateLocalStorage();
 	});
 
 	todosUl.appendChild(todoElement);
