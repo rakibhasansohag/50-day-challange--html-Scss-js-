@@ -1,74 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
 
-// root file
-$-primary-color: #f5f5f5;
-$-secondary-color: #444;
-$-color-white: #fff;
-
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	list-style: none;
-}
-body {
-	font-family: 'Roboto', sans-serif;
+.container {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-	background: $-primary-color;
-	flex-direction: column;
-	color: $-secondary-color;
+	background-color: #f5f5f5;
 }
-
-// point : global styles
 
 h1 {
 	color: rgb(179, 131, 226);
-	font-size: 6rem;
-	text-align: center;
-	opacity: 6;
+	font-size: 3rem;
 	margin-bottom: 2rem;
 }
 
-form {
+.form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.input {
+	border: none;
+	color: #444;
+	font-size: 1.8rem;
+	padding: 0.8rem 1.2rem;
+	border-radius: 4px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	width: 100%;
+
+	&::placeholder {
+		color: #d5d5d5;
+	}
+}
+
+.add-button {
+	border: none;
+	background-color: #444;
+	color: #fff;
+	font-size: 1.8rem;
+	padding: 0.8rem;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+
+	&:hover {
+		background-color: rgb(179, 131, 226);
+	}
+}
+
+.todos {
+	background-color: #fff;
+	padding: 0;
+	margin: 0;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	max-width: 100%;
 	width: 400px;
 
-	.input {
-		border: none;
-		color: $-secondary-color;
-		font-size: 2rem;
+	li {
+		border-top: 1px solid #e5e5e5;
 		padding: 1rem 2rem;
-		display: block;
-		width: 100%;
+		font-size: 1.6rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
-		&::placeholder {
-			color: #d5d5d5;
+		&:last-child {
+			border-bottom: 1px solid #e5e5e5;
 		}
 
-		&:focus {
-			outline-color: rgb(179, 131, 226);
+		&.completed {
+			text-decoration: line-through;
+			color: #b6b7b6;
 		}
-	}
 
-	.todos {
-		background-color: $-color-white;
-		padding: 0;
-		margin: 0;
+		.todo-text {
+			flex-grow: 1;
+		}
 
-		li {
-			border-top: 1px solid #e5e5e5;
-			cursor: pointer;
-			font-size: 1.5rem;
-			padding: 1rem 2rem;
+		.todo-options {
+			display: flex;
+			gap: 0.5rem;
 
-			&.completed {
-				text-decoration: line-through;
-				color: #b6b7b6;
+			i {
+				cursor: pointer;
+				transition: color 0.3s;
+
+				&:hover {
+					color: rgb(179, 131, 226);
+				}
 			}
 		}
 	}
@@ -76,8 +98,8 @@ form {
 
 small {
 	color: #b5b5b5;
-	margin-top: 3rem;
+	margin-top: 2rem;
 	text-align: center;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	letter-spacing: 1px;
 }
