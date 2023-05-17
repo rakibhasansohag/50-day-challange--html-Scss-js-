@@ -38,6 +38,7 @@ function addTodo() {
 	}
 }
 
+// point : add todo
 function addTodoElement(todo) {
 	const todoElement = document.createElement('li');
 	todoElement.innerHTML = `

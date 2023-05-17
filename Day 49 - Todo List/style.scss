@@ -35,6 +35,10 @@ h1 {
 	&::placeholder {
 		color: #d5d5d5;
 	}
+
+	&:focus {
+		outline-color: rgb(179, 131, 226);
+	}
 }
 
 .add-button {
@@ -66,6 +70,20 @@ h1 {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		background-color: #f8f8f8;
+		transition: background-color 0.3s;
+
+		&:nth-child(even) {
+			background-color: #fff;
+		}
+
+		&:nth-child(odd) {
+			background-color: #f8f8f8;
+		}
+
+		&:hover {
+			background-color: #ebebeb;
+		}
 
 		&:last-child {
 			border-bottom: 1px solid #e5e5e5;
@@ -73,7 +91,8 @@ h1 {
 
 		&.completed {
 			text-decoration: line-through;
-			color: #b6b7b6;
+			color: #777;
+			background-color: #d9d9d9;
 		}
 
 		.todo-text {
