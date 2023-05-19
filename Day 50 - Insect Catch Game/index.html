@@ -7,13 +7,66 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://kit.fontawesome.com/df8d6121fb.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/css/style.main.css">
-	<title> Insect Catch Game</title>
+	<title> Insect Catching Game</title>
 </head>
 
 <body>
 
-	<div class="container">
+	<div class="screen">
+		<h1>Catch The Insect</h1>
+		<button class="btn" id="start-btn">Play Game</button>
+	</div>
 
+
+	<div class="screen">
+		<h1>What is Your "favorite" insect?</h1>
+
+
+		<ul class="insects-list">
+
+			<li>
+				<button class="choose-insect-btn">
+					<p>Fly</p>
+					<img src="https://i.ibb.co/GPqN9hp/fly.png" alt="flay">
+				</button>
+			</li>
+
+
+			<li>
+				<button class="choose-insect-btn">
+					<p>Spider</p>
+					<img src="https://i.ibb.co/0D1SqsM/spider.png" alt="flay">
+				</button>
+			</li>
+
+			<li>
+				<button class="choose-insect-btn">
+					<p>mosquito</p>
+					<img src="https://i.ibb.co/FmkkrV9/mosquito.png" alt="flay">
+				</button>
+			</li>
+
+
+			<li>
+				<button class="choose-insect-btn">
+					<p>Ant</p>
+					<img src="https://i.ibb.co/wQrxh56/ant.png" alt="flay">
+				</button>
+			</li>
+
+		</ul>
+
+	</div>
+
+
+
+	<div class="screen game-container">
+		<h3 id="time">Time 00:00</h3>
+		<h3 id="score">Score: 0</h3>
+		<h5 id="message">
+			Are you annoyed by insects? <br>
+			Then kill them all!
+		</h5>
 	</div>
 
 
