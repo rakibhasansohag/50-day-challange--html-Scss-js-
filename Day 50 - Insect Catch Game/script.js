@@ -15,6 +15,7 @@ const message = document.getElementById('message');
 let seconds = 0;
 let score = 0;
 let selected_insect = {};
+let intervalId;
 
 // point : start the game
 start_btn.addEventListener('click', () => screens[0].classList.add('up'));
@@ -34,7 +35,7 @@ choose_insect_btns.forEach((btn) => {
 
 // point : start game
 function startGame() {
-	setInterval(increaseTime, 1000);
+	intervalId = setInterval(increaseTime, 1000);
 }
 
 // point : increase time
@@ -92,4 +93,22 @@ function increaseScore() {
 		message.classList.add('visible');
 	}
 	scoreEl.innerHTML = `Score: ${score}`;
+}
+
+//  point : reset the game
+const resetBtn = document.getElementById('reset-btn');
+resetBtn.addEventListener('click', resetGame);
+
+// point : reset the game
+function resetGame() {
+	clearInterval(intervalId);
+	seconds = 0;
+	score = 0;
+	selected_insect = {};
+	timeEl.innerHTML = `Time : 00:00`;
+	scoreEl.innerHTML = `Score: 0`;
+	message.classList.remove('visible');
+	const insects = document.querySelectorAll('.insect');
+	insects.forEach((insect) => insect.remove());
+	screens[1].classList.remove('up');
 }
