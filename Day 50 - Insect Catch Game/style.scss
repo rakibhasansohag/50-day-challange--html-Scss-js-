@@ -53,7 +53,7 @@ h1 {
 	width: 100vw;
 
 	&.up {
-		margin-top: -200vh;
+		margin-top: -00vh;
 		// transform: translateY(-200vh);
 	}
 
@@ -131,8 +131,28 @@ h1 {
 				transform: translate(-50%, 150%);
 			}
 		}
+
+		.insect {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			// top: 200px;
+			// left: 300px;
+			transform: translate(-50%, -50%), scale(1);
+			transition: transform 0.3s ease-in-out;
+
+			&.caught {
+				transform: translate(-50%, -50%), scale(0);
+			}
+
+			.img {
+				width: 100px;
+				height: 100px;
+				object-fit: contain;
+			}
+		}
 	}
 }
-
-
-
