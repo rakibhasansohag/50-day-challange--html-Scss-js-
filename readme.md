@@ -38,7 +38,7 @@ Contributions to the project are welcome! If you have ideas for improvements or 
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+Guys i don't have any license right now 😎 but will be added newar future 😍.
 
 ---
 
