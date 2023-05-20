@@ -40,7 +40,7 @@ Contributions to the project are welcome! If you have ideas for improvements or 
 
 ## License
 
-Guys i don't have any license right now 😎 but will be added newar future 😍.
+Guys i don't have any license right now 😎 but will be added near future 😍.
 
 ---
 
