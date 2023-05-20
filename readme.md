@@ -1,6 +1,6 @@
 # 50-Day Challenge - HTML, SCSS, JS
 
-Welcome to the 50-Day Challenge repository for HTML, SCSS, and JavaScript! This challenge is designed to improve your front-end web development skills over the course of 50 days. Each day, you will work on a small project using HTML, SCSS, and JavaScript.
+Welcome to the 50-Day Challenge repository for HTML, SCSS, and JavaScript! This challenge is designed to improve your front-end web development skills.
 
 ## Getting Started
 
